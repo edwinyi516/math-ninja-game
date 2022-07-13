@@ -4,6 +4,9 @@
 
 .character-select-screen {
     display: none;
+    align-content: center;
+    flex-wrap: wrap;
+    max-width: 1000px;
 }
 
 .game-screen {
@@ -12,4 +15,8 @@
 
 .game-end-screen {
     display: none;
+}
+
+#choose-addition, #choose-subtraction, #choose-multiplication, #choose-division {
+    font-family: 'Montserrat', sans-serif;
 }

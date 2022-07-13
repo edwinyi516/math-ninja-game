@@ -1,3 +1,15 @@
-.character-select-screen, .game-screen, .game-end-screen {
+.start-screen {
+    display: block;
+}
+
+.character-select-screen {
+    display: none;
+}
+
+.game-screen {
+    display: none;
+}
+
+.game-end-screen {
     display: none;
 }

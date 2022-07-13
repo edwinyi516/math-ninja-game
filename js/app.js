@@ -21,16 +21,36 @@ class Player2 {
 }
 
 //Instantiate Players
-let player1 = new Player1(player1Character, operatorChoice, difficultyChoice)
-let player2 = new Player2(player2Character, operatorChoice, difficultyChoice)
+let player1 = new Player1(characterChoice, operatorChoice, difficultyChoice)
+let player2 = new Player2(characterChoice, operatorChoice, difficultyChoice)
 
 //Game Object
 let game = {
     //Game Functions
-
+    startButton () {
+        startScreen.style.display = "none"
+        characterSelectScreen.style.display = "flex"
+    }
 }
 
+
 //DOM Elements
+const startScreen = document.querySelector(".start-screen")
+console.log(startScreen)
+const startButton = document.querySelector("#start-button")
+
+const characterSelectScreen = document.querySelector(".character-select-screen")
+
+const chooseMegaMan = document.querySelector("#choose-mega-man")
+const chooseZero = document.querySelector("#choose-zero")
+const chooseAddition = document.querySelector("#choose-addition")
+const chooseSubtraction = document.querySelector("#choose-subtraction")
+const chooseMultiplication = document.querySelector("#choose-multiplication")
+const chooseDivision = document.querySelector("#choose-division")
+const chooseAllOperators = document.querySelector("#choose-all-operators")
 
 
 //Event Listeners
+startButton.addEventListener("click", () => {
+    game.startButton()
+})

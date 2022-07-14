@@ -16,6 +16,7 @@ let game = {
         startScreen.style.display = "none"
         characterSelectScreen.style.display = "flex"
         player1 = new Player()
+        player2 = new Player()
     }
 }
 
@@ -28,11 +29,9 @@ const ding = new Audio("assets/sounds/ding.mp3")
 //============================================================
 
 const startScreen = document.querySelector(".start-screen")
-console.log(startScreen)
 const startButton = document.querySelector("#start-button")
 
 const characterSelectScreen = document.querySelector(".character-select-screen")
-
 const chooseMale = document.querySelector("#choose-male")
 const chooseFemale = document.querySelector("#choose-female")
 const chooseAddition = document.querySelector("#choose-addition")
@@ -40,6 +39,7 @@ const chooseSubtraction = document.querySelector("#choose-subtraction")
 const chooseMultiplication = document.querySelector("#choose-multiplication")
 const chooseDivision = document.querySelector("#choose-division")
 const chooseAll = document.querySelector("#choose-all")
+const fightButton = document.querySelector("#fight-button")
 
 
 //Event Listeners
@@ -65,5 +65,8 @@ chooseDivision.addEventListener("click", () => {
     ding.play()
 })
 chooseAll.addEventListener("click", () => {
+    ding.play()
+})
+fightButton.addEventListener("click", () => {
     ding.play()
 })

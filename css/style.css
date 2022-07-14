@@ -1,12 +1,52 @@
 .start-screen {
-    display: block;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    left: 15vw;
+    right: 15vw;
 }
 
 .character-select-screen {
     display: none;
-    align-content: center;
+    justify-content: center;
+    align-items: center;
     flex-wrap: wrap;
-    max-width: 1000px;
+    left: 15vw;
+    right: 15vw;
+}
+
+#choose-character-text {
+    width: 100%;
+    text-align: center;
+}
+
+.characters {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+#choose-male, #choose-female {
+    height: 25vh;
+    width: auto;
+}
+
+#choose-operation-text {
+    width: 100%;
+    text-align: center;
+}
+
+.operator-buttons {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+#choose-addition, #choose-subtraction, #choose-multiplication, #choose-division, #choose-all {
+    min-width: 0;
 }
 
 .game-screen {

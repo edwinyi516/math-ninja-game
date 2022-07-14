@@ -28,6 +28,13 @@
     justify-content: space-evenly;
 }
 
+#chosen-character {
+    height: 25vh;
+    width: auto;
+    filter: drop-shadow(2px 2px 5px yellow) 
+    drop-shadow(-2px -2px 5px yellow);
+}
+
 #choose-male, #choose-female {
     height: 25vh;
     width: auto;
@@ -47,6 +54,18 @@
 
 #choose-addition, #choose-subtraction, #choose-multiplication, #choose-division, #choose-all {
     min-width: 0;
+}
+
+#chosen-operator {
+    display: flex;
+    min-width: 0;
+    filter: drop-shadow(2px 2px 5px yellow) 
+    drop-shadow(-2px -2px 5px yellow);
+}
+
+#choose-male:hover, #choose-female:hover, #choose-addition:hover, #choose-subtraction:hover, #choose-multiplication:hover, #choose-division:hover, #choose-all:hover {
+    filter: drop-shadow(2px 2px 5px yellow) 
+    drop-shadow(-2px -2px 5px yellow);
 }
 
 .game-screen {

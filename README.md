@@ -1,1 +1,1 @@
-# mega-math-game
+# math-ninja-game

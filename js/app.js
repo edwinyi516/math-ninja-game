@@ -21,6 +21,12 @@ let game = {
 
 
 //DOM Elements
+
+//EVENT LISTENER CONFIRMATION SOUND - REMOVE BEFORE DEPLOYMENT
+//============================================================
+const ding = new Audio("assets/sounds/ding.mp3")
+//============================================================
+
 const startScreen = document.querySelector(".start-screen")
 console.log(startScreen)
 const startButton = document.querySelector("#start-button")
@@ -33,10 +39,31 @@ const chooseAddition = document.querySelector("#choose-addition")
 const chooseSubtraction = document.querySelector("#choose-subtraction")
 const chooseMultiplication = document.querySelector("#choose-multiplication")
 const chooseDivision = document.querySelector("#choose-division")
-const chooseAllOperators = document.querySelector("#choose-all-operators")
+const chooseAll = document.querySelector("#choose-all")
 
 
 //Event Listeners
 startButton.addEventListener("click", () => {
     game.startButton()
+})
+chooseMale.addEventListener("click", () => {
+    ding.play()
+})
+chooseFemale.addEventListener("click", () => {
+    ding.play()
+})
+chooseAddition.addEventListener("click", () => {
+    ding.play()
+})
+chooseSubtraction.addEventListener("click", () => {
+    ding.play()
+})
+chooseMultiplication.addEventListener("click", () => {
+    ding.play()
+})
+chooseDivision.addEventListener("click", () => {
+    ding.play()
+})
+chooseAll.addEventListener("click", () => {
+    ding.play()
 })

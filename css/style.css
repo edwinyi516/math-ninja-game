@@ -16,7 +16,3 @@
 .game-end-screen {
     display: none;
 }
-
-#choose-addition, #choose-subtraction, #choose-multiplication, #choose-division {
-    font-family: 'Montserrat', sans-serif;
-}

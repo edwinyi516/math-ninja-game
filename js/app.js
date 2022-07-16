@@ -25,6 +25,11 @@ let game = {
         }
         characterSelectScreen.style.display = "none"
         gameScreen.style.display = "flex"
+        if (player1.character === "male") {
+
+        }
+    },
+    problems () {
 
     }
 }
@@ -51,6 +56,8 @@ const chooseAll = document.querySelector("#choose-all")
 const fightButton = document.querySelector("#fight-button")
 
 const gameScreen = document.querySelector(".game-screen")
+const player1Character = document.querySelector("#player1-character")
+const player2Character = document.querySelector("#player2-character")
 
 
 //Event Listeners

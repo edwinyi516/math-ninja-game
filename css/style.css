@@ -150,6 +150,16 @@ body {
     color: #ffffff;
 }
 
+.timer {
+    position: relative;
+    background-color: white;
+    border-radius: 5px;
+    height: 60px;
+    padding: 10px;
+    text-align: center;
+    margin: 50px 0;
+}
+
 .dialogue-box {
     display: flex;
     background-color: white;

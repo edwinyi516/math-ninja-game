@@ -17,13 +17,18 @@ let game = {
         characterSelectScreen.style.display = "flex"
         player1 = new Player()
         player2 = new Player()
+    },
+    fightButton () {
+        characterSelectScreen.style.display = "none"
+        gameScreen.style.display = "flex"
+        
     }
 }
 
 
 //DOM Elements
 
-//EVENT LISTENER CONFIRMATION SOUND - REMOVE BEFORE DEPLOYMENT
+//EVENT LISTENER CONFIRMATION SOUND
 //============================================================
 const ding = new Audio("assets/sounds/ding.mp3")
 //============================================================
@@ -32,8 +37,8 @@ const startScreen = document.querySelector(".start-screen")
 const startButton = document.querySelector("#start-button")
 
 const characterSelectScreen = document.querySelector(".character-select-screen")
-const chooseMale = document.querySelector("#choose-male")
-const chooseFemale = document.querySelector("#choose-female")
+const maleIdle = document.querySelector("#male-idle")
+const femaleIdle = document.querySelector("#female-idle")
 const chooseAddition = document.querySelector("#choose-addition")
 const chooseSubtraction = document.querySelector("#choose-subtraction")
 const chooseMultiplication = document.querySelector("#choose-multiplication")
@@ -41,20 +46,24 @@ const chooseDivision = document.querySelector("#choose-division")
 const chooseAll = document.querySelector("#choose-all")
 const fightButton = document.querySelector("#fight-button")
 
+const gameScreen = document.querySelector(".game-screen")
+
 
 //Event Listeners
 startButton.addEventListener("click", () => {
     game.startButton()
 })
-chooseMale.addEventListener("click", () => {
+maleIdle.addEventListener("click", () => {
     ding.play()
-    chooseFemale.setAttribute("id", "choose-female")
-    chooseMale.setAttribute("id", "chosen-character")
+    femaleIdle.setAttribute("id", "female-idle")
+    maleIdle.setAttribute("id", "chosen-character")
+    player1.character = "male"
 })
-chooseFemale.addEventListener("click", () => {
+femaleIdle.addEventListener("click", () => {
     ding.play()
-    chooseMale.setAttribute("id", "choose-male")
-    chooseFemale.setAttribute("id", "chosen-character")
+    maleIdle.setAttribute("id", "male-idle")
+    femaleIdle.setAttribute("id", "chosen-character")
+    player1.character = "female"
 })
 chooseAddition.addEventListener("click", () => {
     ding.play()
@@ -63,6 +72,7 @@ chooseAddition.addEventListener("click", () => {
     chooseDivision.setAttribute("id", "choose-division")
     chooseAll.setAttribute("id", "choose-all")
     chooseAddition.setAttribute("id", "chosen-operator")
+    player1.operator = "addition"
 })
 chooseSubtraction.addEventListener("click", () => {
     ding.play()
@@ -71,6 +81,7 @@ chooseSubtraction.addEventListener("click", () => {
     chooseDivision.setAttribute("id", "choose-division")
     chooseAll.setAttribute("id", "choose-all")
     chooseSubtraction.setAttribute("id", "chosen-operator")
+    player1.operator = "subtraction"
 })
 chooseMultiplication.addEventListener("click", () => {
     ding.play()
@@ -79,6 +90,7 @@ chooseMultiplication.addEventListener("click", () => {
     chooseDivision.setAttribute("id", "choose-division")
     chooseAll.setAttribute("id", "choose-all")
     chooseMultiplication.setAttribute("id", "chosen-operator")
+    player1.operator = "multiplication"
 })
 chooseDivision.addEventListener("click", () => {
     ding.play()
@@ -87,6 +99,7 @@ chooseDivision.addEventListener("click", () => {
     chooseMultiplication.setAttribute("id", "choose-multiplication")
     chooseAll.setAttribute("id", "choose-all")
     chooseDivision.setAttribute("id", "chosen-operator")
+    player1.operator = "division"
 })
 chooseAll.addEventListener("click", () => {
     ding.play()
@@ -95,7 +108,9 @@ chooseAll.addEventListener("click", () => {
     chooseMultiplication.setAttribute("id", "choose-multiplication")
     chooseDivision.setAttribute("id", "choose-division")
     chooseAll.setAttribute("id", "chosen-operator")
+    player1.operator = "all"
 })
 fightButton.addEventListener("click", () => {
     ding.play()
+    game.fightButton()
 })

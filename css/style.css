@@ -1,3 +1,18 @@
+html {
+    max-width: 1400px;
+    margin: auto;
+}
+
+body {
+    min-height: 100%;
+    background-image: url("../assets/images/temple-bg.gif");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-width: 600px;
+    max-width: 1400px;
+}
+
 .start-screen {
     display: flex;
     flex-direction: column;
@@ -5,6 +20,11 @@
     align-items: center;
     left: 15vw;
     right: 15vw;
+}
+
+#title {
+    color: white;
+    font-size: 50px;
 }
 
 .character-select-screen {
@@ -35,7 +55,7 @@
     drop-shadow(-2px -2px 5px yellow);
 }
 
-#choose-male, #choose-female {
+#male-idle, #female-idle {
     height: 25vh;
     width: auto;
 }
@@ -63,15 +83,83 @@
     drop-shadow(-2px -2px 5px yellow);
 }
 
-#choose-male:hover, #choose-female:hover, #choose-addition:hover, #choose-subtraction:hover, #choose-multiplication:hover, #choose-division:hover, #choose-all:hover {
+#male-idle:hover, #female-idle:hover, #choose-addition:hover, #choose-subtraction:hover, #choose-multiplication:hover, #choose-division:hover, #choose-all:hover {
     filter: drop-shadow(2px 2px 5px yellow) 
     drop-shadow(-2px -2px 5px yellow);
 }
 
 .game-screen {
     display: none;
+    flex-wrap: wrap;
+    justify-content: space-between;
 }
 
 .game-end-screen {
     display: none;
+}
+
+.player1-hp-bar {
+    position: relative;
+    width: 200px;
+    height: 30px;
+    background: #646464;
+    border-radius: 5px;
+    margin-left: 10vw;
+    margin-bottom: 30px;
+    overflow: hidden;
+}
+#player1-hp-fill {
+    width: 100%;
+    height: 100%;
+    background-color: #2bbe27;
+}
+#player1-hp-text {
+    position: absolute;
+    top: 50%;
+    right: 5px;
+    transform: translateY(-50%);
+    font: bold 14px 'Quicksand', sans-serif;
+    color: #ffffff;
+}
+
+.player2-hp-bar {
+    position: relative;
+    width: 200px;
+    height: 30px;
+    background: #646464;
+    border-radius: 5px;
+    margin-right: 10vw;
+    margin-bottom: 30px;
+    overflow: hidden;
+}
+#player2-hp-fill {
+    width: 100%;
+    height: 100%;
+    background-color: #2bbe27;
+}
+#player2-hp-text {
+    position: absolute;
+    top: 50%;
+    right: 5px;
+    transform: translateY(-50%);
+    font: bold 14px 'Quicksand', sans-serif;
+    color: #ffffff;
+}
+
+.dialogue-box {
+    display: flex;
+    background-color: white;
+    width: fit-content;
+    height: fit-content;
+    margin: auto;
+    align-self: center;
+    padding: 10px 20px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    font-family: "Press Start 2P";
+    line-height: 35px;
+}
+
+#dialogue-box-arrow {
+    max-width: 30px;
 }

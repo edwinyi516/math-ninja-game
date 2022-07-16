@@ -10,7 +10,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@900&display=swap" rel="stylesheet"> 
 </head>
-<body>
+<body class="start-bg">
     <div class="start-screen">
         <div id="title">MATH NINJA</div>
         <button id="start-button">START</button>
@@ -18,8 +18,8 @@
     <div class="character-select-screen">
         <div id="choose-character-text">Choose your character:</div>
         <div class="characters">
-            <img src="assets/images/male-idle.gif" id="choose-male">
-            <img src="assets/images/female-idle.gif" id="choose-female">
+            <img src="assets/images/male-idle.gif" id="male-idle">
+            <img src="assets/images/female-idle.gif" id="female-idle">
         </div>
         <div id="choose-operation-text">Choose operation:</div>
         <div class="operator-buttons">
@@ -32,12 +32,18 @@
         <button id="fight-button">FIGHT!</button>
     </div>
     <div class="game-screen">
+        <div class="player1-hp-bar">
+            <div id="player1-hp-fill"></div>
+            <div id="player1-hp-text">HP: 100</div>
+        </div>
+        <div class="player2-hp-bar">
+            <div id="player2-hp-fill"></div>
+            <div id="player2-hp-text">HP: 100</div>
+        </div>
         <div class="dialogue-box">
             <div id="dialogue-text">Dialogue box text</div>
-            <div id="dialogue-box-arrow">></div>
+            <img src="assets/images/downarrow.gif" id="dialogue-box-arrow">
         </div>
-        <div id="player1-hp-bar"></div>
-        <div id="player2-hp-bar"></div>
         <div id="player1-character"></div>
         <div id="player2-character"></div>
     </div>

@@ -1,16 +1,21 @@
 html {
     max-width: 1400px;
     margin: auto;
+    background-color: #102020;
 }
 
 body {
     min-height: 100%;
-    background-image: url("../assets/images/temple-bg.gif");
+    min-width: 600px;
+    max-width: 1400px;
+    min-height: 100vh;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    min-width: 600px;
-    max-width: 1400px;
+}
+
+.start-bg {
+    background-image: url("../assets/images/temple-bg.gif");
 }
 
 .start-screen {
@@ -91,7 +96,7 @@ body {
 .game-screen {
     display: none;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: space-around;
 }
 
 .game-end-screen {
@@ -100,12 +105,11 @@ body {
 
 .player1-hp-bar {
     position: relative;
-    width: 200px;
+    width: 35%;
     height: 30px;
-    background: #646464;
+    background: #414141;
     border-radius: 5px;
-    margin-left: 10vw;
-    margin-bottom: 30px;
+    margin: 50px 5%;
     overflow: hidden;
 }
 #player1-hp-fill {
@@ -118,18 +122,17 @@ body {
     top: 50%;
     right: 5px;
     transform: translateY(-50%);
-    font: bold 14px 'Quicksand', sans-serif;
+    font: bold 14px sans-serif;
     color: #ffffff;
 }
 
 .player2-hp-bar {
     position: relative;
-    width: 200px;
+    width: 35%;
     height: 30px;
-    background: #646464;
+    background: #414141;
     border-radius: 5px;
-    margin-right: 10vw;
-    margin-bottom: 30px;
+    margin: 50px 5%;
     overflow: hidden;
 }
 #player2-hp-fill {
@@ -146,6 +149,10 @@ body {
     color: #ffffff;
 }
 
+.break {
+    width: 100%;
+}
+
 .dialogue-box {
     display: flex;
     background-color: white;
@@ -154,9 +161,6 @@ body {
     margin: auto;
     align-self: center;
     padding: 10px 20px;
-    flex-direction: row;
-    flex-wrap: wrap;
-    font-family: "Press Start 2P";
     line-height: 35px;
 }
 

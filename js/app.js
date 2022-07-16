@@ -15,13 +15,17 @@ let game = {
     startButton () {
         startScreen.style.display = "none"
         characterSelectScreen.style.display = "flex"
-        player1 = new Player()
-        player2 = new Player()
+        player1 = new Player("", "", "")
+        player2 = new Player("", "", "")
     },
     fightButton () {
+        while (player1.character === "" || player1.operator === "") {
+            alert(`Please choose both a character and operator!`)
+            return
+        }
         characterSelectScreen.style.display = "none"
         gameScreen.style.display = "flex"
-        
+
     }
 }
 

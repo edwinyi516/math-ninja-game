@@ -34,6 +34,7 @@ body {
 
 .character-select-screen {
     display: none;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
@@ -72,7 +73,7 @@ body {
 
 .operator-buttons {
     display: flex;
-    width: 100%;
+    max-width: 75%;
     align-items: center;
     justify-content: space-evenly;
 }
@@ -147,10 +148,6 @@ body {
     transform: translateY(-50%);
     font: bold 14px 'Quicksand', sans-serif;
     color: #ffffff;
-}
-
-.break {
-    width: 100%;
 }
 
 .dialogue-box {

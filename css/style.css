@@ -122,6 +122,14 @@ body {
 #player1-hp-text {
     position: absolute;
     top: 50%;
+    right: 30px;
+    transform: translateY(-50%);
+    font: bold 14px sans-serif;
+    color: #ffffff;
+}
+#player1-hp-number {
+    position: absolute;
+    top: 50%;
     right: 5px;
     transform: translateY(-50%);
     font: bold 14px sans-serif;
@@ -145,9 +153,17 @@ body {
 #player2-hp-text {
     position: absolute;
     top: 50%;
-    right: 5px;
+    right: 30px;
     transform: translateY(-50%);
     font: bold 14px 'Quicksand', sans-serif;
+    color: #ffffff;
+}
+#player2-hp-number {
+    position: absolute;
+    top: 50%;
+    right: 5px;
+    transform: translateY(-50%);
+    font: bold 14px sans-serif;
     color: #ffffff;
 }
 

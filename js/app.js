@@ -53,15 +53,16 @@ let game = {
         submitButton.style.display = "none"
         if(answerNumber === correctAnswer) {
             problemText.innerText = "Correct!"
-            // enemyHP = parseInt(getComputedStyle(player1HPFill).width)
-            // enemyHP = enemyHP - 10
-            // player2HPFill.style.width = `${enemyHP}%`
+            let newplayer2HPNumber = parseInt(player2HPNumber.innerText) - 10
+            player2HPNumber.innerText = newplayer2HPNumber
+            player2HPFill.style.width = `${newplayer2HPNumber}%`
         }
         else {
             problemText.innerText = "Incorrect!"
         }
     }
 }
+
 
 //Key Press Events
 document.body.onkeydown = function(e){
@@ -105,9 +106,9 @@ const submitButton = document.querySelector("#submit-button")
 const player1Character = document.querySelector("#player1-character")
 const player2Character = document.querySelector("#player2-character")
 const player1HPFill = document.querySelector("#player1-hp-fill")
-const player1HPText = document.querySelector("#player1-hp-text")
+const player1HPNumber = document.querySelector("#player1-hp-number")
 const player2HPFill = document.querySelector("#player2-hp-fill")
-const player2HPText = document.querySelector("#player2-hp-text")
+const player2HPNumber = document.querySelector("#player2-hp-number")
 
 
 

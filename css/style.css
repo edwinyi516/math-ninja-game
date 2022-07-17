@@ -162,7 +162,7 @@ body {
 }
 
 .dialogue-box {
-    display: flex;
+    display: none;
     background-color: white;
     width: fit-content;
     height: fit-content;
@@ -173,7 +173,8 @@ body {
 }
 
 #dialogue-box-arrow {
-    max-width: 30px;
+    max-width: 40px;
+    align-self: flex-end;
 }
 
 .players {

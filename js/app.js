@@ -25,6 +25,7 @@ let game = {
         }
         characterSelectScreen.style.display = "none"
         gameScreen.style.display = "flex"
+        dialogueBox.style.display = "flex"
         if (player1.character === "male") {
             player1Character.setAttribute("src", "../assets/images/male-idle.gif")
             player2Character.setAttribute("src", "../assets/images/female-idle.gif")
@@ -34,11 +35,14 @@ let game = {
             player2Character.setAttribute("src", "../assets/images/male-idle.gif")
         }
     },
-    problems () {
-
-    }
 }
 
+//Key Press Events
+document.body.onkeydown = function(e){
+    if(e.keyCode == 32){
+        dialogueBox.style.display = "none"
+    }
+}
 
 //DOM Elements
 
@@ -61,6 +65,7 @@ const chooseAll = document.querySelector("#choose-all")
 const fightButton = document.querySelector("#fight-button")
 
 const gameScreen = document.querySelector(".game-screen")
+const dialogueBox = document.querySelector(".dialogue-box")
 const player1Character = document.querySelector("#player1-character")
 const player2Character = document.querySelector("#player2-character")
 

@@ -46,6 +46,16 @@ let game = {
             problemText.innerText = `${num1} + ${num2} = ?`
             correctAnswer = num1 + num2
         }
+        let interval = setInterval(() => {
+            timerNumber.innerText = parseInt(timerNumber.innerText) - 1
+            if(timerNumber.innerText === "0") {
+                clearInterval(interval)
+                answerSpace.style.display = "none"
+                submitButton.style.display = "none"
+                problemText.innerText = "You ran out of time!"
+            }
+        },1000)
+
     },
     solveProblem () {
         let answerNumber = parseInt(document.querySelector("#answer").value)
@@ -109,6 +119,7 @@ const player1HPFill = document.querySelector("#player1-hp-fill")
 const player1HPNumber = document.querySelector("#player1-hp-number")
 const player2HPFill = document.querySelector("#player2-hp-fill")
 const player2HPNumber = document.querySelector("#player2-hp-number")
+const timerNumber = document.querySelector("#timer-number")
 
 
 

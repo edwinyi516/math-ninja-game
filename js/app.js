@@ -110,6 +110,7 @@ let game = {
                 answerSpace.style.display = "none"
                 submitButton.style.display = "none"
                 problemText.innerText = "You ran out of time!"
+                nextButton.style.display = "block"
             }
         },1000)
 
@@ -120,12 +121,17 @@ let game = {
         submitButton.style.display = "none"
         if(answerNumber === correctAnswer) {
             problemText.innerText = "Correct!"
-            let newplayer2HPNumber = parseInt(player2HPNumber.innerText) - 10
-            player2HPNumber.innerText = newplayer2HPNumber
-            player2HPFill.style.width = `${newplayer2HPNumber}%`
+            answerNumber = ""
+            setTimeout(() => {
+                let newplayer2HPNumber = parseInt(player2HPNumber.innerText) - 10
+                player2HPNumber.innerText = newplayer2HPNumber
+                player2HPFill.style.width = `${newplayer2HPNumber}%`
+                nextButton.style.display = "block"
+            }, 1000)
         }
         else {
-            problemText.innerText = "Incorrect!"
+            problemText.innerText = "Incorrect! You lose your turn."
+            nextButton.style.display = "block"
         }
     }
 }
@@ -168,8 +174,9 @@ const dialogueBox = document.querySelector(".dialogue-box")
 const problemBox = document.querySelector(".problem-box")
 const problemText = document.querySelector("#problem-text")
 const answerSpace = document.querySelector(".answer-space")
-const answer = document.querySelector("#answer").value
+const answer = document.querySelector("#answer")
 const submitButton = document.querySelector("#submit-button")
+const nextButton = document.querySelector("#next-button")
 const player1Character = document.querySelector("#player1-character")
 const player2Character = document.querySelector("#player2-character")
 const player1HPFill = document.querySelector("#player1-hp-fill")
@@ -177,7 +184,6 @@ const player1HPNumber = document.querySelector("#player1-hp-number")
 const player2HPFill = document.querySelector("#player2-hp-fill")
 const player2HPNumber = document.querySelector("#player2-hp-number")
 const timerNumber = document.querySelector("#timer-number")
-
 
 
 //Event Listeners
@@ -248,4 +254,15 @@ fightButton.addEventListener("click", () => {
 submitButton.addEventListener("click", () => {
     clearInterval(timerInterval)
     game.solveProblem()
+})
+nextButton.addEventListener("click", () => {
+    num1 = null
+    num2 = null
+    correctAnswer = null
+    timerInterval = null
+    document.querySelector("#answer").value = ""
+    nextButton.style.display = "none"
+    answerSpace.style.display = "block"
+    submitButton.style.display = "block"
+    game.generateProblems()
 })

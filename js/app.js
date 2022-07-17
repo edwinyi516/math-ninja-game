@@ -10,9 +10,9 @@ class Player {
 }
 
 //Game Object
-let num1 = 0
-let num2 = 0
-let correctAnswer = num1 + num2
+let num1 = null
+let num2 = null
+let correctAnswer = null
 let timerInterval = null
 
 let game = {
@@ -62,6 +62,14 @@ let game = {
             num2 = Math.round(Math.random() * 10)
             problemText.innerText = `${num1} x ${num2} = ?`
             correctAnswer = num1 * num2
+        }
+        else if(player1.operator === "division") {
+            while(num1 % num2 !== 0 || num2 === 0) {
+                num1 = Math.round(Math.random() * 10)
+                num2 = Math.round(Math.random() * 10)
+            }
+            problemText.innerText = `${num1} ÷ ${num2} = ?`
+            correctAnswer = num1 / num2
         }
         timerInterval = setInterval(() => {
             timerNumber.innerText = parseInt(timerNumber.innerText) - 1

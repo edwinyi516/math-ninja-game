@@ -98,6 +98,7 @@ body {
     display: none;
     flex-wrap: wrap;
     justify-content: space-around;
+    height: 100vh;
 }
 
 .game-end-screen {
@@ -173,4 +174,21 @@ body {
 
 #dialogue-box-arrow {
     max-width: 30px;
+}
+
+.players {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    margin: 0 15vw;
+}
+
+#player1-character, #player2-character {
+    height: 25vh;
+    margin-bottom: 5vh;
+    align-self: flex-end;
+}
+
+#player2-character {
+    transform: scaleX(-1)
 }

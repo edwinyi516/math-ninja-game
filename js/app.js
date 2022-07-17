@@ -26,7 +26,12 @@ let game = {
         characterSelectScreen.style.display = "none"
         gameScreen.style.display = "flex"
         if (player1.character === "male") {
-
+            player1Character.setAttribute("src", "../assets/images/male-idle.gif")
+            player2Character.setAttribute("src", "../assets/images/female-idle.gif")
+        }
+        else {
+            player1Character.setAttribute("src", "../assets/images/female-idle.gif")
+            player2Character.setAttribute("src", "../assets/images/male-idle.gif")
         }
     },
     problems () {

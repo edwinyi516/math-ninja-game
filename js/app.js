@@ -30,7 +30,8 @@ let game = {
         }
         characterSelectScreen.style.display = "none"
         gameScreen.style.display = "flex"
-        dialogueBox.style.display = "flex"
+        problemBox.style.display = "flex"
+        nextButton.style.display = "block"
         if (player1.character === "male") {
             player1Character.setAttribute("src", "../assets/images/male-idle.gif")
             player2Character.setAttribute("src", "../assets/images/female-idle.gif")
@@ -119,14 +120,15 @@ let game = {
         let answerNumber = parseInt(document.querySelector("#answer").value)
         answerSpace.style.display = "none"
         submitButton.style.display = "none"
+        nextButton.disabled = true
+        nextButton.style.display = "block"
         if(answerNumber === correctAnswer) {
             problemText.innerText = "Correct!"
-            answerNumber = ""
             setTimeout(() => {
                 let newplayer2HPNumber = parseInt(player2HPNumber.innerText) - 10
                 player2HPNumber.innerText = newplayer2HPNumber
                 player2HPFill.style.width = `${newplayer2HPNumber}%`
-                nextButton.style.display = "block"
+                nextButton.disabled = false
             }, 1000)
         }
         else {
@@ -136,18 +138,6 @@ let game = {
     }
 }
 
-
-//Key Press Events
-document.body.onkeydown = function(e){
-    if(gameScreen.style.display === "flex" && dialogueBox.style.display !== "none") {
-        if(e.keyCode == 32){
-            e.preventDefault();
-            dialogueBox.style.display = "none"
-            problemBox.style.display = "flex"
-            game.generateProblems()
-        }
-    }
-}
 
 //DOM Elements
 
@@ -170,7 +160,6 @@ const chooseAll = document.querySelector("#choose-all")
 const fightButton = document.querySelector("#fight-button")
 
 const gameScreen = document.querySelector(".game-screen")
-const dialogueBox = document.querySelector(".dialogue-box")
 const problemBox = document.querySelector(".problem-box")
 const problemText = document.querySelector("#problem-text")
 const answerSpace = document.querySelector(".answer-space")
@@ -262,7 +251,7 @@ nextButton.addEventListener("click", () => {
     timerInterval = null
     document.querySelector("#answer").value = ""
     nextButton.style.display = "none"
-    answerSpace.style.display = "block"
+    answerSpace.style.display = "flex"
     submitButton.style.display = "block"
     game.generateProblems()
 })

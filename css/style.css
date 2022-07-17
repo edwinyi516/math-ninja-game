@@ -177,32 +177,33 @@ body {
     margin: 50px 0;
 }
 
-.dialogue-box {
-    display: none;
-    background-color: white;
-    width: fit-content;
-    height: fit-content;
-    margin: auto;
-    align-self: center;
-    padding: 10px 20px;
-    line-height: 35px;
-}
-
-#dialogue-box-arrow {
-    max-width: 40px;
-    align-self: flex-end;
-}
-
 .problem-box {
     display: none;
-    flex-wrap: wrap;
+    flex-direction: column;
     justify-content: space-around;
+    align-items: center;
     background-color: white;
     width: 40vw;
-    height: 30vh;
+    height: fit-content;
+    padding: 30px;
+    gap: 20px;
+}
+#problem-text {
+    text-align: center;
+    width: fit-content;
+    height: fit-content;
+}
+.answer-space {
+    display: none;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    gap: 20px;
 }
 #next-button {
     display: none;
+    height: fit-content;
+    width: fit-content;
 }
 
 .players {

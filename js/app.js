@@ -10,6 +10,10 @@ class Player {
 }
 
 //Game Object
+let num1 = 0
+let num2 = 0
+let correctAnswer = num1 + num2
+
 let game = {
     //Game Functions
     startButton () {
@@ -35,12 +39,39 @@ let game = {
             player2Character.setAttribute("src", "../assets/images/male-idle.gif")
         }
     },
+    generateProblems () {
+        if(player1.operator === "addition") {
+            num1 = Math.round(Math.random() * 10)
+            num2 = Math.round(Math.random() * 10)
+            problemText.innerText = `${num1} + ${num2} = ?`
+            correctAnswer = num1 + num2
+        }
+    },
+    solveProblem () {
+        let answerNumber = parseInt(document.querySelector("#answer").value)
+        answerSpace.style.display = "none"
+        submitButton.style.display = "none"
+        if(answerNumber === correctAnswer) {
+            problemText.innerText = "Correct!"
+            // enemyHP = parseInt(getComputedStyle(player1HPFill).width)
+            // enemyHP = enemyHP - 10
+            // player2HPFill.style.width = `${enemyHP}%`
+        }
+        else {
+            problemText.innerText = "Incorrect!"
+        }
+    }
 }
 
 //Key Press Events
 document.body.onkeydown = function(e){
-    if(e.keyCode == 32){
-        dialogueBox.style.display = "none"
+    if(gameScreen.style.display === "flex" && dialogueBox.style.display !== "none") {
+        if(e.keyCode == 32){
+            e.preventDefault();
+            dialogueBox.style.display = "none"
+            problemBox.style.display = "flex"
+            game.generateProblems()
+        }
     }
 }
 
@@ -66,8 +97,18 @@ const fightButton = document.querySelector("#fight-button")
 
 const gameScreen = document.querySelector(".game-screen")
 const dialogueBox = document.querySelector(".dialogue-box")
+const problemBox = document.querySelector(".problem-box")
+const problemText = document.querySelector("#problem-text")
+const answerSpace = document.querySelector(".answer-space")
+const answer = document.querySelector("#answer").value
+const submitButton = document.querySelector("#submit-button")
 const player1Character = document.querySelector("#player1-character")
 const player2Character = document.querySelector("#player2-character")
+const player1HPFill = document.querySelector("#player1-hp-fill")
+const player1HPText = document.querySelector("#player1-hp-text")
+const player2HPFill = document.querySelector("#player2-hp-fill")
+const player2HPText = document.querySelector("#player2-hp-text")
+
 
 
 //Event Listeners
@@ -134,4 +175,7 @@ chooseAll.addEventListener("click", () => {
 fightButton.addEventListener("click", () => {
     ding.play()
     game.fightButton()
+})
+submitButton.addEventListener("click", () => {
+    game.solveProblem()
 })

@@ -133,6 +133,7 @@ let game = {
         }
         else {
             problemText.innerText = "Incorrect! You lose your turn."
+            nextButton.disabled = false
             nextButton.style.display = "block"
         }
     }

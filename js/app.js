@@ -71,6 +71,38 @@ let game = {
             problemText.innerText = `${num1} ÷ ${num2} = ?`
             correctAnswer = num1 / num2
         }
+        else if(player1.operator === "all") {
+            let randomOperator = Math.round(Math.random() * 3)
+            if(randomOperator === 0) {
+                num1 = Math.round(Math.random() * 10)
+                num2 = Math.round(Math.random() * 10)
+                problemText.innerText = `${num1} + ${num2} = ?`
+                correctAnswer = num1 + num2
+            }
+            else if(randomOperator === 1) {
+                num1 = Math.round(Math.random() * 10)
+                num2 = Math.round(Math.random() * 10)
+                while(num1 < num2) {
+                    num2 = Math.round(Math.random() * 10)
+                }
+                problemText.innerText = `${num1} - ${num2} = ?`
+                correctAnswer = num1 - num2
+            }
+            else if(randomOperator === 2) {
+                num1 = Math.round(Math.random() * 10)
+                num2 = Math.round(Math.random() * 10)
+                problemText.innerText = `${num1} x ${num2} = ?`
+                correctAnswer = num1 * num2
+            }
+            else if(randomOperator ===3) {
+                while(num1 % num2 !== 0 || num2 === 0) {
+                    num1 = Math.round(Math.random() * 10)
+                    num2 = Math.round(Math.random() * 10)
+                }
+                problemText.innerText = `${num1} ÷ ${num2} = ?`
+                correctAnswer = num1 / num2
+            }
+        }
         timerInterval = setInterval(() => {
             timerNumber.innerText = parseInt(timerNumber.innerText) - 1
             if(timerNumber.innerText === "0") {

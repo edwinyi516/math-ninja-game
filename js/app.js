@@ -13,6 +13,7 @@ class Player {
 let num1 = 0
 let num2 = 0
 let correctAnswer = num1 + num2
+let timerInterval = null
 
 let game = {
     //Game Functions
@@ -40,16 +41,32 @@ let game = {
         }
     },
     generateProblems () {
+        timerNumber.innerText = 10
         if(player1.operator === "addition") {
             num1 = Math.round(Math.random() * 10)
             num2 = Math.round(Math.random() * 10)
             problemText.innerText = `${num1} + ${num2} = ?`
             correctAnswer = num1 + num2
         }
-        let interval = setInterval(() => {
+        else if(player1.operator === "subtraction") {
+            num1 = Math.round(Math.random() * 10)
+            num2 = Math.round(Math.random() * 10)
+            while(num1 < num2) {
+                num2 = Math.round(Math.random() * 10)
+            }
+            problemText.innerText = `${num1} - ${num2} = ?`
+            correctAnswer = num1 - num2
+        }
+        else if(player1.operator === "multiplication") {
+            num1 = Math.round(Math.random() * 10)
+            num2 = Math.round(Math.random() * 10)
+            problemText.innerText = `${num1} x ${num2} = ?`
+            correctAnswer = num1 * num2
+        }
+        timerInterval = setInterval(() => {
             timerNumber.innerText = parseInt(timerNumber.innerText) - 1
             if(timerNumber.innerText === "0") {
-                clearInterval(interval)
+                clearInterval(timerInterval)
                 answerSpace.style.display = "none"
                 submitButton.style.display = "none"
                 problemText.innerText = "You ran out of time!"
@@ -189,5 +206,6 @@ fightButton.addEventListener("click", () => {
     game.fightButton()
 })
 submitButton.addEventListener("click", () => {
+    clearInterval(timerInterval)
     game.solveProblem()
 })

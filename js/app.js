@@ -5,19 +5,19 @@ class Player {
         this.operator = operator
         this.difficulty = difficulty
     }
-    //Character functions
-
 }
 
-//Game Object
+
+//Global Variables
 let num1 = null
 let num2 = null
 let correctAnswer = null
 let timerInterval = null
 let currentPlayer = null
 
+
+//Game Object
 let game = {
-    //Game Functions
     startButton () {
         startScreen.style.display = "none"
         characterSelectScreen.style.display = "flex"
@@ -279,11 +279,6 @@ let game = {
 
 //DOM Elements
 
-//EVENT LISTENER CONFIRMATION SOUND
-//============================================================
-const ding = new Audio("assets/sounds/ding.mp3")
-//============================================================
-
 const startScreen = document.querySelector(".start-screen")
 const startButton = document.querySelector("#start-button")
 
@@ -302,7 +297,6 @@ const problemBox = document.querySelector(".problem-box")
 const currentPlayerText = document.querySelector("#current-player-text")
 const problemText = document.querySelector("#problem-text")
 const answerSpace = document.querySelector(".answer-space")
-const answer = document.querySelector("#answer")
 const submitButton = document.querySelector("#submit-button")
 const nextButton = document.querySelector("#next-button")
 const playAgainButton = document.querySelector("#play-again-button")
@@ -320,21 +314,18 @@ startButton.addEventListener("click", () => {
     game.startButton()
 })
 maleIdle.addEventListener("click", () => {
-    ding.play()
     femaleIdle.setAttribute("id", "female-idle")
     maleIdle.setAttribute("id", "chosen-character")
     player1.character = "male"
     player2.character = "female"
 })
 femaleIdle.addEventListener("click", () => {
-    ding.play()
     maleIdle.setAttribute("id", "male-idle")
     femaleIdle.setAttribute("id", "chosen-character")
     player1.character = "female"
     player2.character = "male"
 })
 chooseAddition.addEventListener("click", () => {
-    ding.play()
     chooseSubtraction.setAttribute("id", "choose-subtraction")
     chooseMultiplication.setAttribute("id", "choose-multiplication")
     chooseDivision.setAttribute("id", "choose-division")
@@ -343,7 +334,6 @@ chooseAddition.addEventListener("click", () => {
     player1.operator = "addition"
 })
 chooseSubtraction.addEventListener("click", () => {
-    ding.play()
     chooseAddition.setAttribute("id", "choose-addition")
     chooseMultiplication.setAttribute("id", "choose-multiplication")
     chooseDivision.setAttribute("id", "choose-division")
@@ -352,7 +342,6 @@ chooseSubtraction.addEventListener("click", () => {
     player1.operator = "subtraction"
 })
 chooseMultiplication.addEventListener("click", () => {
-    ding.play()
     chooseAddition.setAttribute("id", "choose-addition")
     chooseSubtraction.setAttribute("id", "choose-subtraction")
     chooseDivision.setAttribute("id", "choose-division")
@@ -361,7 +350,6 @@ chooseMultiplication.addEventListener("click", () => {
     player1.operator = "multiplication"
 })
 chooseDivision.addEventListener("click", () => {
-    ding.play()
     chooseAddition.setAttribute("id", "choose-addition")
     chooseSubtraction.setAttribute("id", "choose-subtraction")
     chooseMultiplication.setAttribute("id", "choose-multiplication")
@@ -370,7 +358,6 @@ chooseDivision.addEventListener("click", () => {
     player1.operator = "division"
 })
 chooseAll.addEventListener("click", () => {
-    ding.play()
     chooseAddition.setAttribute("id", "choose-addition")
     chooseSubtraction.setAttribute("id", "choose-subtraction")
     chooseMultiplication.setAttribute("id", "choose-multiplication")
@@ -379,7 +366,6 @@ chooseAll.addEventListener("click", () => {
     player1.operator = "all"
 })
 fightButton.addEventListener("click", () => {
-    ding.play()
     game.fightButton()
 })
 submitButton.addEventListener("click", () => {

@@ -14,6 +14,7 @@ let num1 = null
 let num2 = null
 let correctAnswer = null
 let timerInterval = null
+let currentPlayer = null
 
 let game = {
     //Game Functions
@@ -40,8 +41,10 @@ let game = {
             player1Character.setAttribute("src", "../assets/images/female-idle.gif")
             player2Character.setAttribute("src", "../assets/images/male-idle.gif")
         }
+        currentPlayer = "Player 1"
     },
     generateProblems () {
+        currentPlayerText.innerText = currentPlayer
         timerNumber.innerText = 10
         if(player1.operator === "addition") {
             num1 = Math.round(Math.random() * 10)
@@ -124,17 +127,47 @@ let game = {
         nextButton.style.display = "block"
         if(answerNumber === correctAnswer) {
             problemText.innerText = "Correct!"
+            if(player1.character === "male") {
+                player1Character.setAttribute("src", "../assets/images/male-attack.gif")
+                setTimeout(() => {
+                    player1Character.setAttribute("src", "../assets/images/male-idle.gif")
+                }, 3400)
+            }
+            else if(player1.character === "female") {
+                player1Character.setAttribute("src", "../assets/images/female-attack.gif")
+                setTimeout(() => {
+                    player1Character.setAttribute("src", "../assets/images/female-idle.gif")
+                }, 3400)
+            }
+            else if(player2.character === "male") {
+                player2Character.setAttribute("src", "../assets/images/male-hurt.gif")
+                setTimeout(() => {
+                    player2Character.setAttribute("src", "../assets/images/male-idle.gif")
+                }, 1800)
+            }
+            else if(player2.character === "female") {
+                player2Character.setAttribute("src", "../assets/images/female-hurt.gif")
+                setTimeout(() => {
+                    player2Character.setAttribute("src", "../assets/images/female-idle.gif")
+                }, 1800)
+            }
             setTimeout(() => {
                 let newplayer2HPNumber = parseInt(player2HPNumber.innerText) - 10
                 player2HPNumber.innerText = newplayer2HPNumber
                 player2HPFill.style.width = `${newplayer2HPNumber}%`
                 nextButton.disabled = false
-            }, 1000)
+            }, 2400)
         }
-        else {
+        else if(answerNumber !== correctAnswer) {
             problemText.innerText = "Incorrect! You lose your turn."
             nextButton.disabled = false
             nextButton.style.display = "block"
+        }
+        else if(currentPlayer === "Player 1") {
+            currentPlayer = "Player 2"
+        }
+        else if(currentPlayer === "Player 2") {
+            currentPlayer = "Player 1"
         }
     }
 }
@@ -162,6 +195,7 @@ const fightButton = document.querySelector("#fight-button")
 
 const gameScreen = document.querySelector(".game-screen")
 const problemBox = document.querySelector(".problem-box")
+const currentPlayerText = document.querySelector("#current-player-text")
 const problemText = document.querySelector("#problem-text")
 const answerSpace = document.querySelector(".answer-space")
 const answer = document.querySelector("#answer")
@@ -185,12 +219,14 @@ maleIdle.addEventListener("click", () => {
     femaleIdle.setAttribute("id", "female-idle")
     maleIdle.setAttribute("id", "chosen-character")
     player1.character = "male"
+    player2.character = "female"
 })
 femaleIdle.addEventListener("click", () => {
     ding.play()
     maleIdle.setAttribute("id", "male-idle")
     femaleIdle.setAttribute("id", "chosen-character")
     player1.character = "female"
+    player2.character = "male"
 })
 chooseAddition.addEventListener("click", () => {
     ding.play()

@@ -14,6 +14,7 @@ let num2 = null
 let correctAnswer = null
 let timerInterval = null
 let currentPlayer = null
+let isPaused = false
 
 
 //Game Object
@@ -42,6 +43,42 @@ let game = {
             player2Character.setAttribute("src", "assets/images/male-idle.gif")
         }
         currentPlayer = "Player 1"
+        isPaused = false
+    },
+    pauseGame () {
+        if(isPaused === false) {
+            pauseBackground.style.display = "block"
+            pauseMenu.style.display = "block"
+            isPaused = true
+        }
+        else {
+            pauseMenu.style.display = "none"
+            pauseBackground.style.display = "none"
+            isPaused = false
+        }
+    },
+    nextButton () {
+        num1 = null
+        num2 = null
+        correctAnswer = null
+        timerInterval = null
+        document.querySelector("#answer").value = ""
+        nextButton.style.display = "none"
+        if(player1HPNumber.innerText === "0" || player2HPNumber.innerText === "0") {
+            currentPlayerText.style.display = "none"
+            if(player2HPNumber.innerText === "0") {
+                problemText.innerText = "Player 1 wins!"
+            }
+            else if(player1HPNumber.innerText === "0") {
+                problemText.innerText = "Player 2 wins!"
+            }
+            playAgainButton.style.display = "block"
+        }
+        else {
+            answerSpace.style.display = "flex"
+            submitButton.style.display = "block"
+            game.generateProblems()
+        }
     },
     generateProblems () {
         currentPlayerText.innerText = currentPlayer
@@ -307,6 +344,8 @@ const player1HPNumber = document.querySelector("#player1-hp-number")
 const player2HPFill = document.querySelector("#player2-hp-fill")
 const player2HPNumber = document.querySelector("#player2-hp-number")
 const timerNumber = document.querySelector("#timer-number")
+const pauseMenu = document.querySelector(".pause-menu")
+const pauseBackground = document.querySelector("#pause-background")
 
 
 //Event Listeners
@@ -373,28 +412,14 @@ submitButton.addEventListener("click", () => {
     game.solveProblem()
 })
 nextButton.addEventListener("click", () => {
-    num1 = null
-    num2 = null
-    correctAnswer = null
-    timerInterval = null
-    document.querySelector("#answer").value = ""
-    nextButton.style.display = "none"
-    if(player1HPNumber.innerText === "0" || player2HPNumber.innerText === "0") {
-        currentPlayerText.style.display = "none"
-        if(player2HPNumber.innerText === "0") {
-            problemText.innerText = "Player 1 wins!"
-        }
-        else if(player1HPNumber.innerText === "0") {
-            problemText.innerText = "Player 2 wins!"
-        }
-        playAgainButton.style.display = "block"
-    }
-    else {
-        answerSpace.style.display = "flex"
-        submitButton.style.display = "block"
-        game.generateProblems()
-    }
+    game.nextButton()
 })
 playAgainButton.addEventListener("click", () => {
     location.reload()
 })
+document.addEventListener("keydown", function(e) {
+    const key = e.key
+    if (key === "Escape") {
+        game.pauseGame()
+    }
+});

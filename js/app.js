@@ -132,8 +132,10 @@ let game = {
                 if(newplayer2HPNumber === 0) {
                     if(player1.character === "male") {
                         player1Character.setAttribute("src", "../assets/images/male-attack.gif")
+                        player1Character.classList.add("attacking")
                         setTimeout(() => {
                             player1Character.setAttribute("src", "../assets/images/male-idle.gif")
+                            player1Character.classList.remove("attacking")
                         }, 3000)
                     }
                     else if(player1.character === "female") {
@@ -157,8 +159,10 @@ let game = {
                 else {
                     if(player1.character === "male") {
                         player1Character.setAttribute("src", "../assets/images/male-attack.gif")
+                        player1Character.classList.add("attacking")
                         setTimeout(() => {
                             player1Character.setAttribute("src", "../assets/images/male-idle.gif")
+                            player1Character.classList.remove("attacking")
                         }, 3000)
                     }
                     else if(player1.character === "female") {

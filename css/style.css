@@ -225,3 +225,57 @@ body {
 #player2-character {
     transform: scaleX(-1)
 }
+
+.attacking {
+    animation: movement 3s linear 1;
+}
+
+@keyframes movement {
+    0% {
+        transform: translate(0px);
+    }
+    35% {
+        transform: translate(35vmin);
+    }
+    65% {
+        transform: translate(35vmin);
+    }
+    75% {
+        transform: translate(25vmin, -200px);
+    }
+    80% {
+        transform: translate(20vmin, -220px);
+    }
+    85% {
+        transform: translate(15vmin, -200px);
+    }
+    100% {
+        transform: translate(0px);
+    }
+}
+
+@media (min-width: 2000px) {
+    @keyframes movement {
+        0% {
+            transform: translate(0px);
+        }
+        35% {
+            transform: translate(25vmin);
+        }
+        65% {
+            transform: translate(25vmin);
+        }
+        75% {
+            transform: translate(17.5vmin, -200px);
+        }
+        80% {
+            transform: translate(15vmin, -220px);
+        }
+        85% {
+            transform: translate(10vmin, -200px);
+        }
+        100% {
+            transform: translate(0px);
+        }
+    }
+}

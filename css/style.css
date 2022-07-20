@@ -205,6 +205,9 @@ body {
     height: fit-content;
     width: fit-content;
 }
+#play-again-button {
+    display: none;
+}
 
 .players {
     display: flex;

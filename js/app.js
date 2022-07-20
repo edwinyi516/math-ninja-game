@@ -128,69 +128,123 @@ let game = {
         if(answerNumber === correctAnswer) {
             problemText.innerText = "Correct!"
             if(currentPlayer === "Player 1") {
-                if(player1.character === "male") {
-                    player1Character.setAttribute("src", "../assets/images/male-attack.gif")
-                    setTimeout(() => {
-                        player1Character.setAttribute("src", "../assets/images/male-idle.gif")
-                    }, 3000)
+                let newplayer2HPNumber = parseInt(player2HPNumber.innerText) - 10
+                if(newplayer2HPNumber === 0) {
+                    if(player1.character === "male") {
+                        player1Character.setAttribute("src", "../assets/images/male-attack.gif")
+                        setTimeout(() => {
+                            player1Character.setAttribute("src", "../assets/images/male-idle.gif")
+                        }, 3000)
+                    }
+                    else if(player1.character === "female") {
+                        player1Character.setAttribute("src", "../assets/images/female-attack.gif")
+                        setTimeout(() => {
+                            player1Character.setAttribute("src", "../assets/images/female-idle.gif")
+                        }, 3000)
+                    }
+                    if(player2.character === "male") {
+                        player2Character.setAttribute("src", "../assets/images/male-dead.gif")
+                    }
+                    else if(player2.character === "female") {
+                        player2Character.setAttribute("src", "../assets/images/female-dead.gif")
+                        setTimeout(() => {
+                            player2HPNumber.innerText = newplayer2HPNumber
+                            player2HPFill.style.width = `${newplayer2HPNumber}%`
+                            nextButton.disabled = false
+                        }, 1800)
+                    }
                 }
-                else if(player1.character === "female") {
-                    player1Character.setAttribute("src", "../assets/images/female-attack.gif")
+                else {
+                    if(player1.character === "male") {
+                        player1Character.setAttribute("src", "../assets/images/male-attack.gif")
+                        setTimeout(() => {
+                            player1Character.setAttribute("src", "../assets/images/male-idle.gif")
+                        }, 3000)
+                    }
+                    else if(player1.character === "female") {
+                        player1Character.setAttribute("src", "../assets/images/female-attack.gif")
+                        setTimeout(() => {
+                            player1Character.setAttribute("src", "../assets/images/female-idle.gif")
+                        }, 3000)
+                    }
+                    if(player2.character === "male") {
+                        player2Character.setAttribute("src", "../assets/images/male-hurt.gif")
+                        setTimeout(() => {
+                            player2Character.setAttribute("src", "../assets/images/male-idle.gif")
+                        }, 2200)
+                    }
+                    else if(player2.character === "female") {
+                        player2Character.setAttribute("src", "../assets/images/female-hurt.gif")
+                        setTimeout(() => {
+                            player2Character.setAttribute("src", "../assets/images/female-idle.gif")
+                        }, 2200)
+                    }
                     setTimeout(() => {
-                        player1Character.setAttribute("src", "../assets/images/female-idle.gif")
-                    }, 3000)
+                        player2HPNumber.innerText = newplayer2HPNumber
+                        player2HPFill.style.width = `${newplayer2HPNumber}%`
+                        nextButton.disabled = false
+                    }, 1800)
                 }
-                if(player2.character === "male") {
-                    player2Character.setAttribute("src", "../assets/images/male-hurt.gif")
-                    setTimeout(() => {
-                        player2Character.setAttribute("src", "../assets/images/male-idle.gif")
-                    }, 2200)
-                }
-                else if(player2.character === "female") {
-                    player2Character.setAttribute("src", "../assets/images/female-hurt.gif")
-                    setTimeout(() => {
-                        player2Character.setAttribute("src", "../assets/images/female-idle.gif")
-                    }, 2200)
-                }
-                setTimeout(() => {
-                    let newplayer2HPNumber = parseInt(player2HPNumber.innerText) - 10
-                    player2HPNumber.innerText = newplayer2HPNumber
-                    player2HPFill.style.width = `${newplayer2HPNumber}%`
-                    nextButton.disabled = false
-                }, 1800)
             }
-            else if(currentPlayer === "Player 2") {
-                if(player2.character === "male") {
-                    player2Character.setAttribute("src", "../assets/images/male-attack.gif")
-                    setTimeout(() => {
-                        player2Character.setAttribute("src", "../assets/images/male-idle.gif")
-                    }, 3000)
+            else if (currentPlayer === "Player 2") {
+                let newplayer1HPNumber = parseInt(player1HPNumber.innerText) - 10
+                if (newplayer1HPNumber === 0) {
+                    if(player2.character === "male") {
+                        player2Character.setAttribute("src", "../assets/images/male-attack.gif")
+                        setTimeout(() => {
+                            player2Character.setAttribute("src", "../assets/images/male-idle.gif")
+                        }, 3000)
+                    }
+                    else if(player2.character === "female") {
+                        player2Character.setAttribute("src", "../assets/images/female-attack.gif")
+                        setTimeout(() => {
+                            player2Character.setAttribute("src", "../assets/images/female-idle.gif")
+                        }, 3000)
+                    }
+                    if(player1.character === "male") {
+                        player1Character.setAttribute("src", "../assets/images/male-dead.gif")
+                    }
+                    else if(player1.character === "female") {
+                        player1Character.setAttribute("src", "../assets/images/female-dead.gif")
+                        setTimeout(() => {
+                            player1HPNumber.innerText = newplayer1HPNumber
+                            player1HPFill.style.width = `${newplayer1HPNumber}%`
+                            nextButton.disabled = false
+                        }, 1800)
+                    }
                 }
-                else if(player2.character === "female") {
-                    player2Character.setAttribute("src", "../assets/images/female-attack.gif")
+                else {
+                    if(player2.character === "male") {
+                        player2Character.setAttribute("src", "../assets/images/male-attack.gif")
+                        setTimeout(() => {
+                            player2Character.setAttribute("src", "../assets/images/male-idle.gif")
+                        }, 3000)
+                    }
+                    else if(player2.character === "female") {
+                        player2Character.setAttribute("src", "../assets/images/female-attack.gif")
+                        setTimeout(() => {
+                            player2Character.setAttribute("src", "../assets/images/female-idle.gif")
+                        }, 3000)
+                    }
+                    if(player1.character === "male") {
+                        player1Character.setAttribute("src", "../assets/images/male-hurt.gif")
+                        setTimeout(() => {
+                            player1Character.setAttribute("src", "../assets/images/male-idle.gif")
+                        }, 2200)
+                    }
+                    else if(player1.character === "female") {
+                        player1Character.setAttribute("src", "../assets/images/female-hurt.gif")
+                        setTimeout(() => {
+                            player1Character.setAttribute("src", "../assets/images/female-idle.gif")
+                        }, 2200)
+                    }
                     setTimeout(() => {
-                        player2Character.setAttribute("src", "../assets/images/female-idle.gif")
-                    }, 3000)
+                        player1HPNumber.innerText = newplayer1HPNumber
+                        player1HPFill.style.width = `${newplayer1HPNumber}%`
+                        nextButton.disabled = false
+                    }, 1800)
                 }
-                if(player1.character === "male") {
-                    player1Character.setAttribute("src", "../assets/images/male-hurt.gif")
-                    setTimeout(() => {
-                        player1Character.setAttribute("src", "../assets/images/male-idle.gif")
-                    }, 2200)
                 }
-                else if(player1.character === "female") {
-                    player1Character.setAttribute("src", "../assets/images/female-hurt.gif")
-                    setTimeout(() => {
-                        player1Character.setAttribute("src", "../assets/images/female-idle.gif")
-                    }, 2200)
-                }
-                setTimeout(() => {
-                    let newplayer1HPNumber = parseInt(player1HPNumber.innerText) - 10
-                    player1HPNumber.innerText = newplayer1HPNumber
-                    player1HPFill.style.width = `${newplayer1HPNumber}%`
-                    nextButton.disabled = false
-                }, 1800)
-            }
             }
         else if(answerNumber !== correctAnswer) {
             problemText.innerText = "Incorrect! You lose your turn."
@@ -235,6 +289,7 @@ const answerSpace = document.querySelector(".answer-space")
 const answer = document.querySelector("#answer")
 const submitButton = document.querySelector("#submit-button")
 const nextButton = document.querySelector("#next-button")
+const playAgainButton = document.querySelector("#play-again-button")
 const player1Character = document.querySelector("#player1-character")
 const player2Character = document.querySelector("#player2-character")
 const player1HPFill = document.querySelector("#player1-hp-fill")
@@ -322,7 +377,22 @@ nextButton.addEventListener("click", () => {
     timerInterval = null
     document.querySelector("#answer").value = ""
     nextButton.style.display = "none"
-    answerSpace.style.display = "flex"
-    submitButton.style.display = "block"
-    game.generateProblems()
+    if(player1HPNumber.innerText === "0" || player2HPNumber.innerText === "0") {
+        currentPlayerText.style.display = "none"
+        if(player2HPNumber.innerText === "0") {
+            problemText.innerText = "Player 1 wins!"
+        }
+        else if(player1HPNumber.innerText === "0") {
+            problemText.innerText = "Player 2 wins!"
+        }
+        playAgainButton.style.display = "block"
+    }
+    else {
+        answerSpace.style.display = "flex"
+        submitButton.style.display = "block"
+        game.generateProblems()
+    }
+})
+playAgainButton.addEventListener("click", () => {
+    location.reload()
 })

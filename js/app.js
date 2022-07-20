@@ -145,16 +145,16 @@ let game = {
             }
         }
         timerInterval = setInterval(() => {
-            timerNumber.innerText = parseInt(timerNumber.innerText) - 1
-            if(timerNumber.innerText === "0") {
-                clearInterval(timerInterval)
-                answerSpace.style.display = "none"
-                submitButton.style.display = "none"
-                problemText.innerText = "You ran out of time!"
-                nextButton.style.display = "block"
-            }
-        },1000)
-
+            if(!isPaused)
+                timerNumber.innerText = parseInt(timerNumber.innerText) - 1
+                if(timerNumber.innerText === "0") {
+                    clearInterval(timerInterval)
+                    answerSpace.style.display = "none"
+                    submitButton.style.display = "none"
+                    problemText.innerText = "You ran out of time!"
+                    nextButton.style.display = "block"
+                }
+            },1000)
     },
     solveProblem () {
         let answerNumber = parseInt(document.querySelector("#answer").value)

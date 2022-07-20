@@ -131,25 +131,25 @@ let game = {
                 player1Character.setAttribute("src", "../assets/images/male-attack.gif")
                 setTimeout(() => {
                     player1Character.setAttribute("src", "../assets/images/male-idle.gif")
-                }, 3400)
+                }, 3000)
             }
             else if(player1.character === "female") {
                 player1Character.setAttribute("src", "../assets/images/female-attack.gif")
                 setTimeout(() => {
                     player1Character.setAttribute("src", "../assets/images/female-idle.gif")
-                }, 3400)
+                }, 3000)
             }
-            else if(player2.character === "male") {
+            if(player2.character === "male") {
                 player2Character.setAttribute("src", "../assets/images/male-hurt.gif")
                 setTimeout(() => {
                     player2Character.setAttribute("src", "../assets/images/male-idle.gif")
-                }, 1800)
+                }, 2200)
             }
             else if(player2.character === "female") {
                 player2Character.setAttribute("src", "../assets/images/female-hurt.gif")
                 setTimeout(() => {
                     player2Character.setAttribute("src", "../assets/images/female-idle.gif")
-                }, 1800)
+                }, 2200)
             }
             setTimeout(() => {
                 let newplayer2HPNumber = parseInt(player2HPNumber.innerText) - 10

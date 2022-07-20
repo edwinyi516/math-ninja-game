@@ -34,12 +34,12 @@ let game = {
         problemBox.style.display = "flex"
         nextButton.style.display = "block"
         if (player1.character === "male") {
-            player1Character.setAttribute("src", "../assets/images/male-idle.gif")
-            player2Character.setAttribute("src", "../assets/images/female-idle.gif")
+            player1Character.setAttribute("src", "assets/images/male-idle.gif")
+            player2Character.setAttribute("src", "assets/images/female-idle.gif")
         }
         else {
-            player1Character.setAttribute("src", "../assets/images/female-idle.gif")
-            player2Character.setAttribute("src", "../assets/images/male-idle.gif")
+            player1Character.setAttribute("src", "assets/images/female-idle.gif")
+            player2Character.setAttribute("src", "assets/images/male-idle.gif")
         }
         currentPlayer = "Player 1"
     },
@@ -131,26 +131,26 @@ let game = {
                 let newplayer2HPNumber = parseInt(player2HPNumber.innerText) - 10
                 if(newplayer2HPNumber === 0) {
                     if(player1.character === "male") {
-                        player1Character.setAttribute("src", "../assets/images/male-attack.gif")
+                        player1Character.setAttribute("src", "assets/images/male-attack.gif")
                         player1Character.classList.add("p1-attacking")
                         setTimeout(() => {
-                            player1Character.setAttribute("src", "../assets/images/male-idle.gif")
+                            player1Character.setAttribute("src", "assets/images/male-idle.gif")
                             player1Character.classList.remove("p1-attacking")
                         }, 3000)
                     }
                     else if(player1.character === "female") {
-                        player1Character.setAttribute("src", "../assets/images/female-attack.gif")
+                        player1Character.setAttribute("src", "assets/images/female-attack.gif")
                         player1Character.classList.add("p1-attacking")
                         setTimeout(() => {
-                            player1Character.setAttribute("src", "../assets/images/female-idle.gif")
+                            player1Character.setAttribute("src", "assets/images/female-idle.gif")
                             player1Character.classList.remove("p1-attacking")
                         }, 3000)
                     }
                     if(player2.character === "male") {
-                        player2Character.setAttribute("src", "../assets/images/male-dead.gif")
+                        player2Character.setAttribute("src", "assets/images/male-dead.gif")
                     }
                     else if(player2.character === "female") {
-                        player2Character.setAttribute("src", "../assets/images/female-dead.gif")
+                        player2Character.setAttribute("src", "assets/images/female-dead.gif")
                         setTimeout(() => {
                             player2HPNumber.innerText = newplayer2HPNumber
                             player2HPFill.style.width = `${newplayer2HPNumber}%`
@@ -160,31 +160,31 @@ let game = {
                 }
                 else {
                     if(player1.character === "male") {
-                        player1Character.setAttribute("src", "../assets/images/male-attack.gif")
+                        player1Character.setAttribute("src", "assets/images/male-attack.gif")
                         player1Character.classList.add("p1-attacking")
                         setTimeout(() => {
-                            player1Character.setAttribute("src", "../assets/images/male-idle.gif")
+                            player1Character.setAttribute("src", "assets/images/male-idle.gif")
                             player1Character.classList.remove("p1-attacking")
                         }, 3000)
                     }
                     else if(player1.character === "female") {
-                        player1Character.setAttribute("src", "../assets/images/female-attack.gif")
+                        player1Character.setAttribute("src", "assets/images/female-attack.gif")
                         player1Character.classList.add("p1-attacking")
                         setTimeout(() => {
-                            player1Character.setAttribute("src", "../assets/images/female-idle.gif")
+                            player1Character.setAttribute("src", "assets/images/female-idle.gif")
                             player1Character.classList.remove("p1-attacking")
                         }, 3000)
                     }
                     if(player2.character === "male") {
-                        player2Character.setAttribute("src", "../assets/images/male-hurt.gif")
+                        player2Character.setAttribute("src", "assets/images/male-hurt.gif")
                         setTimeout(() => {
-                            player2Character.setAttribute("src", "../assets/images/male-idle.gif")
+                            player2Character.setAttribute("src", "assets/images/male-idle.gif")
                         }, 2200)
                     }
                     else if(player2.character === "female") {
-                        player2Character.setAttribute("src", "../assets/images/female-hurt.gif")
+                        player2Character.setAttribute("src", "assets/images/female-hurt.gif")
                         setTimeout(() => {
-                            player2Character.setAttribute("src", "../assets/images/female-idle.gif")
+                            player2Character.setAttribute("src", "assets/images/female-idle.gif")
                         }, 2200)
                     }
                     setTimeout(() => {
@@ -198,26 +198,26 @@ let game = {
                 let newplayer1HPNumber = parseInt(player1HPNumber.innerText) - 10
                 if (newplayer1HPNumber === 0) {
                     if(player2.character === "male") {
-                        player2Character.setAttribute("src", "../assets/images/male-attack.gif")
+                        player2Character.setAttribute("src", "assets/images/male-attack.gif")
                         player2Character.classList.add("p2-attacking")
                         setTimeout(() => {
-                            player2Character.setAttribute("src", "../assets/images/male-idle.gif")
+                            player2Character.setAttribute("src", "assets/images/male-idle.gif")
                             player2Character.classList.remove("p2-attacking")
                         }, 3000)
                     }
                     else if(player2.character === "female") {
-                        player2Character.setAttribute("src", "../assets/images/female-attack.gif")
+                        player2Character.setAttribute("src", "assets/images/female-attack.gif")
                         player2Character.classList.add("p2-attacking")
                         setTimeout(() => {
-                            player2Character.setAttribute("src", "../assets/images/female-idle.gif")
+                            player2Character.setAttribute("src", "assets/images/female-idle.gif")
                             player2Character.classList.remove("p2-attacking")
                         }, 3000)
                     }
                     if(player1.character === "male") {
-                        player1Character.setAttribute("src", "../assets/images/male-dead.gif")
+                        player1Character.setAttribute("src", "assets/images/male-dead.gif")
                     }
                     else if(player1.character === "female") {
-                        player1Character.setAttribute("src", "../assets/images/female-dead.gif")
+                        player1Character.setAttribute("src", "assets/images/female-dead.gif")
                         setTimeout(() => {
                             player1HPNumber.innerText = newplayer1HPNumber
                             player1HPFill.style.width = `${newplayer1HPNumber}%`
@@ -227,31 +227,31 @@ let game = {
                 }
                 else {
                     if(player2.character === "male") {
-                        player2Character.setAttribute("src", "../assets/images/male-attack.gif")
+                        player2Character.setAttribute("src", "assets/images/male-attack.gif")
                         player2Character.classList.add("p2-attacking")
                         setTimeout(() => {
-                            player2Character.setAttribute("src", "../assets/images/male-idle.gif")
+                            player2Character.setAttribute("src", "assets/images/male-idle.gif")
                             player2Character.classList.remove("p2-attacking")
                         }, 3000)
                     }
                     else if(player2.character === "female") {
-                        player2Character.setAttribute("src", "../assets/images/female-attack.gif")
+                        player2Character.setAttribute("src", "assets/images/female-attack.gif")
                         player2Character.classList.add("p2-attacking")
                         setTimeout(() => {
-                            player2Character.setAttribute("src", "../assets/images/female-idle.gif")
+                            player2Character.setAttribute("src", "assets/images/female-idle.gif")
                             player2Character.classList.remove("p2-attacking")
                         }, 3000)
                     }
                     if(player1.character === "male") {
-                        player1Character.setAttribute("src", "../assets/images/male-hurt.gif")
+                        player1Character.setAttribute("src", "assets/images/male-hurt.gif")
                         setTimeout(() => {
-                            player1Character.setAttribute("src", "../assets/images/male-idle.gif")
+                            player1Character.setAttribute("src", "assets/images/male-idle.gif")
                         }, 2200)
                     }
                     else if(player1.character === "female") {
-                        player1Character.setAttribute("src", "../assets/images/female-hurt.gif")
+                        player1Character.setAttribute("src", "assets/images/female-hurt.gif")
                         setTimeout(() => {
-                            player1Character.setAttribute("src", "../assets/images/female-idle.gif")
+                            player1Character.setAttribute("src", "assets/images/female-idle.gif")
                         }, 2200)
                     }
                     setTimeout(() => {

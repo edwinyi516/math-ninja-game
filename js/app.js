@@ -151,12 +151,12 @@ let game = {
                     }
                     else if(player2.character === "female") {
                         player2Character.setAttribute("src", "assets/images/female-dead.gif")
-                        setTimeout(() => {
-                            player2HPNumber.innerText = newplayer2HPNumber
-                            player2HPFill.style.width = `${newplayer2HPNumber}%`
-                            nextButton.disabled = false
-                        }, 1800)
                     }
+                    setTimeout(() => {
+                        player2HPNumber.innerText = newplayer2HPNumber
+                        player2HPFill.style.width = `${newplayer2HPNumber}%`
+                        nextButton.disabled = false
+                    }, 1800)
                 }
                 else {
                     if(player1.character === "male") {
@@ -218,12 +218,12 @@ let game = {
                     }
                     else if(player1.character === "female") {
                         player1Character.setAttribute("src", "assets/images/female-dead.gif")
-                        setTimeout(() => {
-                            player1HPNumber.innerText = newplayer1HPNumber
-                            player1HPFill.style.width = `${newplayer1HPNumber}%`
-                            nextButton.disabled = false
-                        }, 1800)
                     }
+                    setTimeout(() => {
+                        player1HPNumber.innerText = newplayer1HPNumber
+                        player1HPFill.style.width = `${newplayer1HPNumber}%`
+                        nextButton.disabled = false
+                    }, 1800)
                 }
                 else {
                     if(player2.character === "male") {

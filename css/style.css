@@ -21,13 +21,25 @@ body {
     align-items: center;
     left: 15vw;
     right: 15vw;
+    gap: 30px;
 }
 .start-bg {
     background-image: url("../assets/images/temple-bg.gif");
 }
+.audio-selected {
+    display: block;
+    position: absolute;
+    top: 15px;
+    right: 30px;
+    max-height: 75px;
+}
+.audio-not-selected {
+    display: none;
+}
 #title {
     color: white;
     font-size: 50px;
+    margin-top: 8vh;
 }
 
 /*==========Character Select Screen==========*/

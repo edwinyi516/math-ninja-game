@@ -25,6 +25,16 @@ let game = {
         player1 = new Player("", "", "")
         player2 = new Player("", "", "")
     },
+    muteButton () {
+        if (audioOn.getAttribute("class") === "audio-selected") {
+            audioOn.setAttribute("class", "audio-not-selected")
+            audioMute.setAttribute("class", "audio-selected")
+        }
+        else if (audioMute.getAttribute("class") === "audio-selected") {
+            audioMute.setAttribute("class", "audio-not-selected")
+            audioOn.setAttribute("class", "audio-selected")
+        }
+    },
     fightButton () {
         while (player1.character === "" || player1.operator === "") {
             alert(`Please choose both a character and operator!`)
@@ -317,9 +327,10 @@ let game = {
 
 
 //DOM Elements
-
 const startScreen = document.querySelector(".start-screen")
 const startButton = document.querySelector("#start-button")
+const audioOn = document.querySelector("#audio-on")
+const audioMute = document.querySelector("#audio-mute")
 
 const characterSelectScreen = document.querySelector(".character-select-screen")
 const maleIdle = document.querySelector("#male-idle")
@@ -350,10 +361,18 @@ const pauseMenu = document.querySelector(".pause-menu")
 const pauseBackground = document.querySelector("#pause-background")
 const closeButton = document.querySelector("#close-button")
 
+//Audio
+
 
 //Event Listeners
 startButton.addEventListener("click", () => {
     game.startButton()
+})
+audioOn.addEventListener("click", () => {
+    game.muteButton()
+})
+audioMute.addEventListener("click", () => {
+    game.muteButton()
 })
 maleIdle.addEventListener("click", () => {
     femaleIdle.setAttribute("id", "female-idle")

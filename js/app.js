@@ -29,9 +29,9 @@ let game = {
         if (audioOn.getAttribute("class") === "audio-selected") {
             audioOn.setAttribute("class", "audio-not-selected")
             audioMute.setAttribute("class", "audio-selected")
-            startbgm.volume = 0
-            gamebgm.volume = 0
-            pop.volume = 0
+            allAudio.forEach((e) => {
+                e.volume = 0
+            })
         }
         else if (audioMute.getAttribute("class") === "audio-selected") {
             audioMute.setAttribute("class", "audio-not-selected")
@@ -41,13 +41,18 @@ let game = {
             pop.volume = 0.15
             slash.volume = .5
             whack.volume = .5
+            cheer.volume = .5
+            correct.volume = .2
+            incorrect.volume = .3
         }
     },
     musicMuteButton () {
         if(menuMusicOn.getAttribute("class") === "music-selected") {
             menuMusicOn.setAttribute("class", "music-not-selected")
             menuMusicMute.setAttribute("class", "music-selected")
-            gamebgm.volume = 0
+            allMusic.forEach((e) => {
+                e.volume = 0
+            })
         }
         else {
             menuMusicOn.setAttribute("class", "music-selected")
@@ -59,9 +64,9 @@ let game = {
         if(menuSoundsOn.getAttribute("class") === "sounds-selected") {
             menuSoundsOn.setAttribute("class", "sounds-not-selected")
             menuSoundsMute.setAttribute("class", "sounds-selected")
-            pop.volume = 0
-            slash.volume = 0
-            whack.volume = 0
+            allSounds.forEach((e) => {
+                e.volume = 0
+            })
         }
         else {
             menuSoundsOn.setAttribute("class", "sounds-selected")
@@ -69,6 +74,9 @@ let game = {
             pop.volume = 0.15
             slash.volume = .5
             whack.volume = .5
+            cheer.volume = .5
+            correct.volume = .2
+            incorrect.volume = .3
         }
     },
     fightButton () {
@@ -141,6 +149,7 @@ let game = {
         nextButton.style.display = "none"
         if(player1HPNumber.innerText === "0" || player2HPNumber.innerText === "0") {
             currentPlayerText.style.display = "none"
+            cheer.play()
             if(player2HPNumber.innerText === "0") {
                 problemText.innerText = "Player 1 wins!"
             }
@@ -239,6 +248,7 @@ let game = {
         nextButton.style.display = "block"
         if(answerNumber === correctAnswer) {
             problemText.innerText = "Correct!"
+            correct.play()
             setTimeout(() => {
                 slash.play()
             }, 1350)
@@ -382,6 +392,7 @@ let game = {
             }
         else if(answerNumber !== correctAnswer) {
             problemText.innerText = "Incorrect! You lose your turn."
+            incorrect.play()
             nextButton.disabled = false
             nextButton.style.display = "block"
         }
@@ -441,8 +452,14 @@ const menuSoundsMute = document.querySelector("#menu-sounds-mute")
 const startbgm = new Audio("assets/sounds/main-theme-alexander-nakarada.mp3")
 const gamebgm = new Audio("assets/sounds/hostiles-inbound-miguel-johnson.mp3")
 const pop = new Audio("assets/sounds/pop.mp3")
+const correct = new Audio("assets/sounds/correct.wav")
+const incorrect = new Audio("assets/sounds/incorrect.mp3")
 const slash = new Audio("assets/sounds/slash.mp3")
 const whack = new Audio("assets/sounds/whack.mp3")
+const cheer = new Audio("assets/sounds/cheer.wav")
+const allAudio = [startbgm, gamebgm, pop, correct, incorrect, slash, whack, cheer]
+const allMusic = [startbgm, gamebgm]
+const allSounds = [pop, correct, incorrect, slash, whack, cheer]
 startbgm.loop = true
 gamebgm.loop = true
 
@@ -454,11 +471,14 @@ startButton.addEventListener("click", () => {
         pop.volume = 0.15
         slash.volume = .5
         whack.volume = .5
+        cheer.volume = .5
+        correct.volume = .2
+        incorrect.volume = .3
     }
     else if (audioMute.getAttribute("class") == "audio-selected") {
-        startbgm.volume = 0
-        gamebgm.volume = 0
-        pop.volume = 0
+        allAudio.forEach((e) => {
+            e.volume = 0
+        })
     }
     game.startButton()
     startbgm.play()

@@ -109,6 +109,9 @@ body {
     width: 35%;
     height: 30px;
     background: #414141;
+    border-width: 3px;
+    border-color: black;
+    border-style: solid;
     border-radius: 5px;
     margin: 50px 5%;
     overflow: hidden;
@@ -139,6 +142,9 @@ body {
     width: 35%;
     height: 30px;
     background: #414141;
+    border-width: 3px;
+    border-color: black;
+    border-style: solid;
     border-radius: 5px;
     margin: 50px 5%;
     overflow: hidden;

@@ -592,7 +592,7 @@ document.addEventListener("keydown", function(e) {
             game.pauseGame()
         }
         if(key === "Enter") {
-            if(nextButton.style.display === "block") {
+            if(nextButton.style.display === "block" && nextButton.disabled === false) {
                 game.nextButton()
             }
             else if(submitButton.style.display === "block") {

@@ -47,13 +47,15 @@ let game = {
     },
     pauseGame () {
         if(isPaused === false) {
+            problemBox.style.display = "none"
             pauseBackground.style.display = "block"
-            pauseMenu.style.display = "block"
+            pauseMenu.style.display = "flex"
             isPaused = true
         }
         else {
             pauseMenu.style.display = "none"
             pauseBackground.style.display = "none"
+            problemBox.style.display = "flex"
             isPaused = false
         }
     },
@@ -346,6 +348,7 @@ const player2HPNumber = document.querySelector("#player2-hp-number")
 const timerNumber = document.querySelector("#timer-number")
 const pauseMenu = document.querySelector(".pause-menu")
 const pauseBackground = document.querySelector("#pause-background")
+const closeButton = document.querySelector("#close-button")
 
 
 //Event Listeners
@@ -416,6 +419,12 @@ nextButton.addEventListener("click", () => {
 })
 playAgainButton.addEventListener("click", () => {
     location.reload()
+})
+closeButton.addEventListener("click", () => {
+    pauseMenu.style.display = "none"
+    pauseBackground.style.display = "none"
+    problemBox.style.display = "flex"
+    isPaused = false
 })
 document.addEventListener("keydown", function(e) {
     const key = e.key

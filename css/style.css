@@ -42,12 +42,12 @@ body {
     font-family: 'Shojumaru';
     font-size: 130px;
     white-space: nowrap;
+    margin-top: 10vh;
     background: -webkit-linear-gradient(#fce149, #ff5820);
     -webkit-background-clip: text;
     background-clip: none; /*inserted only to remove error*/
     -webkit-text-fill-color: transparent;
-    margin-top: 10vh;
-    -webkit-text-stroke-width: 7px;
+    -webkit-text-stroke-width: 5px;
     -webkit-text-stroke-color: #029ecf;
     transform: scale(.8, 1);
 }
@@ -59,7 +59,7 @@ body {
     width: 180px;
     height: 60px;
     border-width: 1.5px;
-    color: #4a4a4a;
+    color: #764700;
     border-color: #029ecf;
     border-width: 4px;
     font-weight: bold;
@@ -81,28 +81,55 @@ body {
     right: 15vw;
 }
 #choose-character-text {
+    font-family: 'Ceviche One';
+    letter-spacing: 3px;
     width: 100%;
+    font-size: 60px;
     text-align: center;
+    margin-top: 100px;
+    background: -webkit-linear-gradient(#fecd1d, #ff5820);
+    -webkit-background-clip: text;
+    background-clip: none; /*inserted only to remove error*/
+    -webkit-text-fill-color: transparent;
+    -webkit-text-stroke-width: 2px;
+    -webkit-text-stroke-color: #029ecf;
 }
 .characters {
     display: flex;
     width: 100%;
     align-items: center;
-    justify-content: space-evenly;
-}
-#chosen-character {
-    height: 25vh;
-    width: auto;
-    filter: drop-shadow(2px 2px 5px yellow) 
-    drop-shadow(-2px -2px 5px yellow);
+    justify-content:center;
 }
 #male-idle, #female-idle {
     height: 25vh;
     width: auto;
 }
+#female-idle {
+    height: 25vh;
+    width: auto;
+    transform: scaleX(-1);
+}
+.chosen-character {
+    height: 25vh;
+    width: auto;
+    filter: drop-shadow(2px 2px 5px #ff7f01) 
+    drop-shadow(-2px -2px 5px #ff7f01);
+}
 #choose-operation-text {
+    font-family: 'Ceviche One';
+    letter-spacing: 3px;
     width: 100%;
+    font-size: 60px;
     text-align: center;
+    margin-top: 50px;
+    letter-spacing: 3px;
+    background: -webkit-linear-gradient(#fecd1d, #ff5820);
+    -webkit-background-clip: text;
+    background-clip: none; /*inserted only to remove error*/
+    -webkit-text-fill-color: transparent;
+    -webkit-text-stroke-width: 2px;
+    -webkit-text-stroke-color: #029ecf;
+    margin-bottom: 30px;
 }
 .operator-buttons {
     display: flex;
@@ -118,12 +145,30 @@ body {
 #chosen-operator {
     display: flex;
     min-width: 0;
-    filter: drop-shadow(2px 2px 5px yellow) 
-    drop-shadow(-2px -2px 5px yellow);
+    filter: drop-shadow(2px 2px 5px #ff7f01) 
+    drop-shadow(-2px -2px 5px #ff7f01);
 }
 #male-idle:hover, #female-idle:hover, #choose-addition:hover, #choose-subtraction:hover, #choose-multiplication:hover, #choose-division:hover, #choose-all:hover {
-    filter: drop-shadow(2px 2px 5px yellow) 
-    drop-shadow(-2px -2px 5px yellow);
+    filter: drop-shadow(2px 2px 5px #ff7f01) 
+    drop-shadow(-2px -2px 5px #ff7f01);
+}
+#fight-button {
+    margin-top: 80px;
+    font-size: 25px;
+    font-family: 'Shojumaru';
+    transform: scale(.9, 1);
+    width: 180px;
+    height: 60px;
+    border-width: 1.5px;
+    color: #764700;
+    border-color: #029ecf;
+    border-width: 4px;
+    font-weight: bold;
+    border-radius: 35px;
+    background: linear-gradient(#ffec64, #ff8223);
+}
+#fight-button:hover {
+    background: linear-gradient(#ff8223, #ffec64);
 }
 
 /*==========Game Screen==========*/

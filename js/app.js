@@ -509,14 +509,16 @@ menuSoundsMute.addEventListener("click", () => {
 maleIdle.addEventListener("click", () => {
     pop.play()
     femaleIdle.setAttribute("id", "female-idle")
-    maleIdle.setAttribute("id", "chosen-character")
+    femaleIdle.classList.remove("chosen-character")
+    maleIdle.setAttribute("class", "chosen-character")
     player1.character = "male"
     player2.character = "female"
 })
 femaleIdle.addEventListener("click", () => {
     pop.play()
     maleIdle.setAttribute("id", "male-idle")
-    femaleIdle.setAttribute("id", "chosen-character")
+    maleIdle.classList.remove("chosen-character")
+    femaleIdle.setAttribute("class", "chosen-character")
     player1.character = "female"
     player2.character = "male"
 })

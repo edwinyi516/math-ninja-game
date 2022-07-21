@@ -483,6 +483,7 @@ startButton.addEventListener("click", () => {
             e.volume = 0
         })
     }
+    pop.play()
     game.startButton()
     startbgm.play()
 })

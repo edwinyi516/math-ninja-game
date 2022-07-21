@@ -11,6 +11,7 @@ body {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+    position: relative;
 }
 
 /*==========Start Screen==========*/
@@ -22,6 +23,7 @@ body {
     left: 15vw;
     right: 15vw;
     gap: 30px;
+    overflow: hidden;
 }
 .start-bg {
     background-image: url("../assets/images/temple-bg.gif");
@@ -37,9 +39,35 @@ body {
     display: none;
 }
 #title {
-    color: white;
-    font-size: 50px;
-    margin-top: 8vh;
+    font-family: 'Shojumaru';
+    font-size: 130px;
+    white-space: nowrap;
+    background: -webkit-linear-gradient(#fce149, #ff5820);
+    -webkit-background-clip: text;
+    background-clip: none; /*inserted only to remove error*/
+    -webkit-text-fill-color: transparent;
+    margin-top: 10vh;
+    -webkit-text-stroke-width: 7px;
+    -webkit-text-stroke-color: #029ecf;
+    transform: scale(.8, 1);
+}
+#start-button {
+    margin: 30px;
+    font-size: 25px;
+    font-family: 'Shojumaru';
+    transform: scale(.9, 1);
+    width: 180px;
+    height: 60px;
+    border-width: 1.5px;
+    color: #4a4a4a;
+    border-color: #029ecf;
+    border-width: 4px;
+    font-weight: bold;
+    border-radius: 35px;
+    background: linear-gradient(#ffec64, #ff8223);
+}
+#start-button:hover {
+    background: linear-gradient(#ff8223, #ffec64);
 }
 
 /*==========Character Select Screen==========*/
@@ -78,12 +106,14 @@ body {
 }
 .operator-buttons {
     display: flex;
-    max-width: 75%;
+    max-width: 90%;
     align-items: center;
     justify-content: space-evenly;
+    gap: 10%;
 }
 #choose-addition, #choose-subtraction, #choose-multiplication, #choose-division, #choose-all {
     min-width: 0;
+    max-height: 200px;
 }
 #chosen-operator {
     display: flex;

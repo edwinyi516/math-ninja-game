@@ -214,7 +214,7 @@ body {
     display: flex;
     width: 100%;
     justify-content: space-between;
-    margin: 0 15vw;
+    margin: 0 15%;
 }
 #player1-character, #player2-character {
     height: 25vh;
@@ -335,25 +335,25 @@ body {
         transform: translate(0px) scaleX(-1);
     }
 }
-@media (min-width: 2000px) {
+@media (min-width: 1300px) {
     @keyframes p1movement {
         0% {
             transform: translate(0px);
         }
         35% {
-            transform: translate(20vmin);
+            transform: translate(45vmin);
         }
         65% {
-            transform: translate(20vmin);
+            transform: translate(45vmin);
         }
         75% {
-            transform: translate(12.5vmin, -200px);
+            transform: translate(30vmin, -200px);
         }
         80% {
-            transform: translate(10vmin, -220px);
+            transform: translate(25vmin, -220px);
         }
         85% {
-            transform: translate(7.5vmin, -200px);
+            transform: translate(20vmin, -200px);
         }
         100% {
             transform: translate(0px);
@@ -364,19 +364,19 @@ body {
             transform: translate(0px) scaleX(-1);
         }
         35% {
-            transform: translate(-25vmin) scaleX(-1);
+            transform: translate(-48vmin) scaleX(-1);
         }
         65% {
-            transform: translate(-25vmin) scaleX(-1);
+            transform: translate(-48vmin) scaleX(-1);
         }
         75% {
-            transform: translate(-20vmin, -200px) scaleX(-1);
+            transform: translate(-40vmin, -200px) scaleX(-1);
         }
         80% {
-            transform: translate(-15vmin, -220px) scaleX(-1);
+            transform: translate(-30vmin, -220px) scaleX(-1);
         }
         85% {
-            transform: translate(-10vmin, -200px) scaleX(-1);
+            transform: translate(-20vmin, -200px) scaleX(-1);
         }
         100% {
             transform: translate(0px) scaleX(-1);

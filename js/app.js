@@ -85,7 +85,7 @@ let game = {
             return
         }
         setInterval(() => {
-            if(startbgm.volume > 0) {
+            if(startbgm.volume > 0.02) {
                 startbgm.volume -= .02
             }
             else {
@@ -162,6 +162,7 @@ let game = {
             answerSpace.style.display = "flex"
             submitButton.style.display = "block"
             game.generateProblems()
+            answer.focus()
         }
     },
     generateProblems () {
@@ -428,6 +429,7 @@ const problemBox = document.querySelector(".problem-box")
 const currentPlayerText = document.querySelector("#current-player-text")
 const problemText = document.querySelector("#problem-text")
 const answerSpace = document.querySelector(".answer-space")
+const answer = document.querySelector("#answer")
 const submitButton = document.querySelector("#submit-button")
 const nextButton = document.querySelector("#next-button")
 const playAgainButton = document.querySelector("#play-again-button")
@@ -462,6 +464,7 @@ const allMusic = [startbgm, gamebgm]
 const allSounds = [pop, correct, incorrect, slash, whack, cheer]
 startbgm.loop = true
 gamebgm.loop = true
+
 
 //Event Listeners
 startButton.addEventListener("click", () => {
@@ -583,8 +586,18 @@ closeButton.addEventListener("click", () => {
 })
 document.addEventListener("keydown", function(e) {
     const key = e.key
-    if (key === "Escape") {
-        pop.play()
-        game.pauseGame()
-    }
-});
+    if(gameScreen.style.display === "flex")
+        if(key === "Escape") {
+            pop.play()
+            game.pauseGame()
+        }
+        if(key === "Enter") {
+            if(nextButton.style.display === "block") {
+                game.nextButton()
+            }
+            else if(submitButton.style.display === "block") {
+                clearInterval(timerInterval)
+                game.solveProblem()
+            }
+        }
+})

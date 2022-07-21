@@ -8,7 +8,7 @@ class Player {
 }
 
 
-//Global Variables
+//Global
 let num1 = null
 let num2 = null
 let correctAnswer = null
@@ -29,10 +29,46 @@ let game = {
         if (audioOn.getAttribute("class") === "audio-selected") {
             audioOn.setAttribute("class", "audio-not-selected")
             audioMute.setAttribute("class", "audio-selected")
+            startbgm.volume = 0
+            gamebgm.volume = 0
+            pop.volume = 0
         }
         else if (audioMute.getAttribute("class") === "audio-selected") {
             audioMute.setAttribute("class", "audio-not-selected")
             audioOn.setAttribute("class", "audio-selected")
+            startbgm.volume = 0.2
+            gamebgm.volume = 0.2
+            pop.volume = 0.15
+            slash.volume = .5
+            whack.volume = .5
+        }
+    },
+    musicMuteButton () {
+        if(menuMusicOn.getAttribute("class") === "music-selected") {
+            menuMusicOn.setAttribute("class", "music-not-selected")
+            menuMusicMute.setAttribute("class", "music-selected")
+            gamebgm.volume = 0
+        }
+        else {
+            menuMusicOn.setAttribute("class", "music-selected")
+            menuMusicMute.setAttribute("class", "music-not-selected")
+            gamebgm.volume = 0.2
+        }
+    },
+    soundsMuteButton () {
+        if(menuSoundsOn.getAttribute("class") === "sounds-selected") {
+            menuSoundsOn.setAttribute("class", "sounds-not-selected")
+            menuSoundsMute.setAttribute("class", "sounds-selected")
+            pop.volume = 0
+            slash.volume = 0
+            whack.volume = 0
+        }
+        else {
+            menuSoundsOn.setAttribute("class", "sounds-selected")
+            menuSoundsMute.setAttribute("class", "sounds-not-selected")
+            pop.volume = 0.15
+            slash.volume = .5
+            whack.volume = .5
         }
     },
     fightButton () {
@@ -40,10 +76,37 @@ let game = {
             alert(`Please choose both a character and operator!`)
             return
         }
+        setInterval(() => {
+            if(startbgm.volume > 0) {
+                startbgm.volume -= .02
+            }
+            else {
+                startbgm.pause()
+                clearInterval()
+            }
+            },100)
+        setTimeout(() => {
+            gamebgm.play()
+        }, 1000)
+        if(startSoundOn.getAttribute("class") === "audio-selected") {
+            menuMusicOn.setAttribute("class", "music-selected")
+            menuMusicMute.setAttribute("class", "music-not-selected")
+            menuSoundsOn.setAttribute("class", "sounds-selected")
+            menuSoundsMute.setAttribute("class", "sounds-not-selected")
+        }
+        else {
+            menuMusicOn.setAttribute("class", "music-not-selected")
+            menuMusicMute.setAttribute("class", "music-selected")
+            menuSoundsOn.setAttribute("class", "sounds-not-selected")
+            menuSoundsMute.setAttribute("class", "sounds-selected")
+        }
         characterSelectScreen.style.display = "none"
+        startSound.style.display = "none"
         gameScreen.style.display = "flex"
         problemBox.style.display = "flex"
         nextButton.style.display = "block"
+        startSoundOn.removeAttribute("class")
+        startSoundMute.removeAttribute("class")
         if (player1.character === "male") {
             player1Character.setAttribute("src", "assets/images/male-idle.gif")
             player2Character.setAttribute("src", "assets/images/female-idle.gif")
@@ -176,6 +239,12 @@ let game = {
         nextButton.style.display = "block"
         if(answerNumber === correctAnswer) {
             problemText.innerText = "Correct!"
+            setTimeout(() => {
+                slash.play()
+            }, 1350)
+            setTimeout(() => {
+                whack.play()
+            }, 1200)
             if(currentPlayer === "Player 1") {
                 let newplayer2HPNumber = parseInt(player2HPNumber.innerText) - 10
                 if(newplayer2HPNumber === 0) {
@@ -329,8 +398,9 @@ let game = {
 //DOM Elements
 const startScreen = document.querySelector(".start-screen")
 const startButton = document.querySelector("#start-button")
-const audioOn = document.querySelector("#audio-on")
-const audioMute = document.querySelector("#audio-mute")
+const startSound = document.querySelector(".start-sound")
+const startSoundOn = document.querySelector("#start-sound-on")
+const startSoundMute = document.querySelector("#start-sound-mute")
 
 const characterSelectScreen = document.querySelector(".character-select-screen")
 const maleIdle = document.querySelector("#male-idle")
@@ -362,11 +432,36 @@ const pauseBackground = document.querySelector("#pause-background")
 const closeButton = document.querySelector("#close-button")
 
 //Audio
-
+const audioOn = document.querySelector(".audio-selected")
+const audioMute = document.querySelector(".audio-not-selected")
+const menuMusicOn = document.querySelector("#menu-music-on")
+const menuMusicMute = document.querySelector("#menu-music-mute")
+const menuSoundsOn = document.querySelector("#menu-sounds-on")
+const menuSoundsMute = document.querySelector("#menu-sounds-mute")
+const startbgm = new Audio("assets/sounds/main-theme-alexander-nakarada.mp3")
+const gamebgm = new Audio("assets/sounds/hostiles-inbound-miguel-johnson.mp3")
+const pop = new Audio("assets/sounds/pop.mp3")
+const slash = new Audio("assets/sounds/slash.mp3")
+const whack = new Audio("assets/sounds/whack.mp3")
+startbgm.loop = true
+gamebgm.loop = true
 
 //Event Listeners
 startButton.addEventListener("click", () => {
+    if (audioOn.getAttribute("class") == "audio-selected") {
+        startbgm.volume = 0.2
+        gamebgm.volume = 0.2
+        pop.volume = 0.15
+        slash.volume = .5
+        whack.volume = .5
+    }
+    else if (audioMute.getAttribute("class") == "audio-selected") {
+        startbgm.volume = 0
+        gamebgm.volume = 0
+        pop.volume = 0
+    }
     game.startButton()
+    startbgm.play()
 })
 audioOn.addEventListener("click", () => {
     game.muteButton()
@@ -374,19 +469,35 @@ audioOn.addEventListener("click", () => {
 audioMute.addEventListener("click", () => {
     game.muteButton()
 })
+menuMusicOn.addEventListener("click", () => {
+    game.musicMuteButton()
+})
+menuMusicMute.addEventListener("click", () => {
+    game.musicMuteButton()
+})
+menuSoundsOn.addEventListener("click", () => {
+    game.soundsMuteButton()
+})
+menuSoundsMute.addEventListener("click", () => {
+    game.soundsMuteButton()
+    pop.play()
+})
 maleIdle.addEventListener("click", () => {
+    pop.play()
     femaleIdle.setAttribute("id", "female-idle")
     maleIdle.setAttribute("id", "chosen-character")
     player1.character = "male"
     player2.character = "female"
 })
 femaleIdle.addEventListener("click", () => {
+    pop.play()
     maleIdle.setAttribute("id", "male-idle")
     femaleIdle.setAttribute("id", "chosen-character")
     player1.character = "female"
     player2.character = "male"
 })
 chooseAddition.addEventListener("click", () => {
+    pop.play()
     chooseSubtraction.setAttribute("id", "choose-subtraction")
     chooseMultiplication.setAttribute("id", "choose-multiplication")
     chooseDivision.setAttribute("id", "choose-division")
@@ -395,6 +506,7 @@ chooseAddition.addEventListener("click", () => {
     player1.operator = "addition"
 })
 chooseSubtraction.addEventListener("click", () => {
+    pop.play()
     chooseAddition.setAttribute("id", "choose-addition")
     chooseMultiplication.setAttribute("id", "choose-multiplication")
     chooseDivision.setAttribute("id", "choose-division")
@@ -403,6 +515,7 @@ chooseSubtraction.addEventListener("click", () => {
     player1.operator = "subtraction"
 })
 chooseMultiplication.addEventListener("click", () => {
+    pop.play()
     chooseAddition.setAttribute("id", "choose-addition")
     chooseSubtraction.setAttribute("id", "choose-subtraction")
     chooseDivision.setAttribute("id", "choose-division")
@@ -411,6 +524,7 @@ chooseMultiplication.addEventListener("click", () => {
     player1.operator = "multiplication"
 })
 chooseDivision.addEventListener("click", () => {
+    pop.play()
     chooseAddition.setAttribute("id", "choose-addition")
     chooseSubtraction.setAttribute("id", "choose-subtraction")
     chooseMultiplication.setAttribute("id", "choose-multiplication")
@@ -419,6 +533,7 @@ chooseDivision.addEventListener("click", () => {
     player1.operator = "division"
 })
 chooseAll.addEventListener("click", () => {
+    pop.play()
     chooseAddition.setAttribute("id", "choose-addition")
     chooseSubtraction.setAttribute("id", "choose-subtraction")
     chooseMultiplication.setAttribute("id", "choose-multiplication")
@@ -440,6 +555,7 @@ playAgainButton.addEventListener("click", () => {
     location.reload()
 })
 closeButton.addEventListener("click", () => {
+    pop.play()
     pauseMenu.style.display = "none"
     pauseBackground.style.display = "none"
     problemBox.style.display = "flex"
@@ -448,6 +564,7 @@ closeButton.addEventListener("click", () => {
 document.addEventListener("keydown", function(e) {
     const key = e.key
     if (key === "Escape") {
+        pop.play()
         game.pauseGame()
     }
 });

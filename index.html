@@ -8,11 +8,11 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body class="start-bg">
+    <div class="start-sound">
+        <img class="audio-selected" id="start-sound-on" src="assets/images/audio-on.png">
+        <img class="audio-not-selected" id="start-sound-mute" src="assets/images/audio-mute.png">
+    </div>
     <div class="start-screen">
-        <div class="content">
-            <img class="audio-selected" id="audio-on" src="assets/images/audio-on.png">
-            <img class="audio-not-selected" id="audio-mute" src="assets/images/audio-mute.png">
-        </div>
         <div id="title">MATH NINJA</div>
         <button id="start-button">START</button>
     </div>
@@ -36,7 +36,20 @@
         <div id="pause-background"></div>
         <div class="pause-menu">
             <div id="pause-text">PAUSED</div>
-            <div id="mute-button">MUTE</div>
+            <div class="audio-text">
+                <div id="music-text">Music</div>
+                <div id="sounds-text">Sounds</div>
+            </div>
+            <div class="sound-buttons">
+                <div class="menu-music">
+                    <img class="music-selected" id="menu-music-on" src="assets/images/audio-on.png">
+                    <img class="music-not-selected" id="menu-music-mute" src="assets/images/audio-mute.png">
+                </div>
+                <div class="menu-sounds">
+                    <img class="sounds-selected" id="menu-sounds-on" src="assets/images/audio-on.png">
+                    <img class="sounds-not-selected" id="menu-sounds-mute" src="assets/images/audio-mute.png">
+                </div>
+            </div>
             <button id="close-button">Close / Resume</button>
         </div>
         <div class="player1-hp-bar">

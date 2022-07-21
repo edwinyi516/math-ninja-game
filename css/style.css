@@ -237,6 +237,7 @@ body {
     display: none;
     position: absolute;
     flex-direction: column;
+    flex-wrap: wrap;
     justify-content: space-around;
     align-items: center;
     margin-top: 20%;
@@ -254,6 +255,31 @@ body {
     margin-top: auto;
     margin-bottom: auto;
     width: fit-content;
+}
+.audio-text {
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+    gap: 20px;
+}
+.sound-buttons {
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+}
+.music-selected {
+    display: block;
+    max-height: 75px;
+}
+.music-not-selected {
+    display: none;
+}
+.sounds-selected {
+    display: block;
+    max-height: 75px;
+}
+.sounds-not-selected {
+    display: none;
 }
 
 /*==========Animations==========*/

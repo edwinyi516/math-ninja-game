@@ -84,6 +84,7 @@ let game = {
             alert(`Please choose both a character and operator!`)
             return
         }
+        pop.play()
         setInterval(() => {
             if(startbgm.volume > 0.02) {
                 startbgm.volume -= .02
@@ -147,6 +148,7 @@ let game = {
         timerInterval = null
         document.querySelector("#answer").value = ""
         nextButton.style.display = "none"
+        pop.play()
         if(player1HPNumber.innerText === "0" || player2HPNumber.innerText === "0") {
             currentPlayerText.style.display = "none"
             cheer.play()
@@ -162,6 +164,7 @@ let game = {
         }
         else {
             answerSpace.style.display = "flex"
+            submitButton.disabled = "true"
             submitButton.style.display = "block"
             game.generateProblems()
             answer.focus()
@@ -631,9 +634,17 @@ document.addEventListener("keydown", function(e) {
             if(nextButton.style.display === "block" && nextButton.disabled === false) {
                 game.nextButton()
             }
-            else if(submitButton.style.display === "block") {
+            else if(submitButton.style.display === "block" && submitButton.disabled === false) {
                 clearInterval(timerInterval)
                 game.solveProblem()
             }
         }
+})
+answer.addEventListener("input", () => {
+    if(answer.value.length == 0) {
+        submitButton.disabled = true
+    }
+    else {
+        submitButton.disabled = false
+    }
 })

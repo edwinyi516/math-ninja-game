@@ -417,6 +417,7 @@ const startSoundMute = document.querySelector("#start-sound-mute")
 const characterSelectScreen = document.querySelector(".character-select-screen")
 const maleIdle = document.querySelector("#male-idle")
 const femaleIdle = document.querySelector("#female-idle")
+const chosenCharacter = document.querySelector(".chosen-character")
 const chooseAddition = document.querySelector("#choose-addition")
 const chooseSubtraction = document.querySelector("#choose-subtraction")
 const chooseMultiplication = document.querySelector("#choose-multiplication")
@@ -508,17 +509,19 @@ menuSoundsMute.addEventListener("click", () => {
 })
 maleIdle.addEventListener("click", () => {
     pop.play()
-    femaleIdle.setAttribute("id", "female-idle")
     femaleIdle.classList.remove("chosen-character")
-    maleIdle.setAttribute("class", "chosen-character")
+    femaleIdle.classList.add("not-chosen-character")
+    maleIdle.classList.remove("class", "not-chosen-character")
+    maleIdle.classList.add("chosen-character")
     player1.character = "male"
     player2.character = "female"
 })
 femaleIdle.addEventListener("click", () => {
     pop.play()
-    maleIdle.setAttribute("id", "male-idle")
     maleIdle.classList.remove("chosen-character")
-    femaleIdle.setAttribute("class", "chosen-character")
+    maleIdle.classList.add("not-chosen-character")
+    femaleIdle.classList.remove("class", "not-chosen-character")
+    femaleIdle.classList.add("chosen-character")
     player1.character = "female"
     player2.character = "male"
 })

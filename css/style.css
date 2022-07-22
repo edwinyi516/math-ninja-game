@@ -43,12 +43,12 @@ body {
     font-size: 130px;
     white-space: nowrap;
     margin-top: 10vh;
-    background: -webkit-linear-gradient(#fce149, #ff5820);
+    background: -webkit-linear-gradient(#ff3d3d, #000000);
     -webkit-background-clip: text;
     background-clip: none; /*inserted only to remove error*/
     -webkit-text-fill-color: transparent;
     -webkit-text-stroke-width: 5px;
-    -webkit-text-stroke-color: #029ecf;
+    -webkit-text-stroke-color: #d8d8d8;
     transform: scale(.8, 1);
 }
 #start-button {
@@ -59,15 +59,16 @@ body {
     width: 180px;
     height: 60px;
     border-width: 1.5px;
-    color: #764700;
-    border-color: #029ecf;
+    color: #000000;
+    border-color: #d8d8d8;
     border-width: 4px;
     font-weight: bold;
     border-radius: 35px;
-    background: linear-gradient(#ffec64, #ff8223);
+    background: linear-gradient(#e5e5e5, #4b4b4b);
 }
 #start-button:hover {
-    background: linear-gradient(#ff8223, #ffec64);
+    background: linear-gradient(#ff3d3d, #000000);
+    color: #ffffff;
 }
 
 /*==========Character Select Screen==========*/
@@ -87,12 +88,12 @@ body {
     font-size: 60px;
     text-align: center;
     margin-top: 100px;
-    background: -webkit-linear-gradient(#fecd1d, #ff5820);
+    background: -webkit-linear-gradient(#ff3d3d, #1b1b1b);
     -webkit-background-clip: text;
     background-clip: none; /*inserted only to remove error*/
     -webkit-text-fill-color: transparent;
     -webkit-text-stroke-width: 2px;
-    -webkit-text-stroke-color: #029ecf;
+    -webkit-text-stroke-color: #d8d8d8;
 }
 .characters {
     display: flex;
@@ -112,8 +113,8 @@ body {
 .chosen-character {
     height: 25vh;
     width: auto;
-    filter: drop-shadow(2px 2px 5px #ff7f01) 
-    drop-shadow(-2px -2px 5px #ff7f01);
+    filter: drop-shadow(2px 2px 5px #ff3d3d)
+    drop-shadow(-2px -2px 5px #ff3d3d);
 }
 #choose-operation-text {
     font-family: 'Ceviche One';
@@ -123,12 +124,12 @@ body {
     text-align: center;
     margin-top: 50px;
     letter-spacing: 3px;
-    background: -webkit-linear-gradient(#fecd1d, #ff5820);
+    background: -webkit-linear-gradient(#ff3d3d, #1b1b1b);
     -webkit-background-clip: text;
     background-clip: none; /*inserted only to remove error*/
     -webkit-text-fill-color: transparent;
     -webkit-text-stroke-width: 2px;
-    -webkit-text-stroke-color: #029ecf;
+    -webkit-text-stroke-color: #ffffff;
     margin-bottom: 30px;
 }
 .operator-buttons {
@@ -143,14 +144,15 @@ body {
     max-height: 200px;
 }
 #chosen-operator {
-    display: flex;
     min-width: 0;
-    filter: drop-shadow(2px 2px 5px #ff7f01) 
-    drop-shadow(-2px -2px 5px #ff7f01);
+    max-height: 200px;
+    filter: drop-shadow(2px 2px 5px #ff3d3d)
+    drop-shadow(-2px -2px 5px #ff3d3d);
+    transform: none;
 }
-#male-idle:hover, #female-idle:hover, #choose-addition:hover, #choose-subtraction:hover, #choose-multiplication:hover, #choose-division:hover, #choose-all:hover {
-    filter: drop-shadow(2px 2px 5px #ff7f01) 
-    drop-shadow(-2px -2px 5px #ff7f01);
+.not-chosen-character:hover, #choose-addition:hover, #choose-subtraction:hover, #choose-multiplication:hover, #choose-division:hover, #choose-all:hover {
+    filter: drop-shadow(2px 2px 5px #ffffff) 
+    drop-shadow(-2px -2px 5px #ffffff);
 }
 #fight-button {
     margin-top: 80px;
@@ -160,15 +162,16 @@ body {
     width: 180px;
     height: 60px;
     border-width: 1.5px;
-    color: #764700;
-    border-color: #029ecf;
+    color: #000000;
+    border-color: #d8d8d8;
     border-width: 4px;
     font-weight: bold;
     border-radius: 35px;
-    background: linear-gradient(#ffec64, #ff8223);
+    background: linear-gradient(#e5e5e5, #4b4b4b);
 }
 #fight-button:hover {
-    background: linear-gradient(#ff8223, #ffec64);
+    background: linear-gradient(#ff3d3d, #000000);
+    color: #ffffff;
 }
 
 /*==========Game Screen==========*/

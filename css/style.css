@@ -251,7 +251,7 @@ body {
 .timer {
     position: relative;
     font-family: "Ceviche One";
-    height: 60px;
+    height: fit-content;
     padding: 10px;
     text-align: center;
     margin: 2vh -1vw;
@@ -408,7 +408,7 @@ body {
     width: fit-content;
     height: fit-content;
     min-width: 50%;
-    min-height: 30vh;
+    min-height: 20vh;
     background: rgb(62, 62, 62, 0.8);
     border: black;
     border-style: solid;
@@ -482,10 +482,11 @@ body {
     border-radius: 20px;
     background: linear-gradient(#ff3d3d, #000000);
     margin-top: 20px;
+    margin-bottom: 20px;
 }
 #reset-button:hover {
     background: linear-gradient(#ff3d3d, #ff7f7f);
-    color: #ffffff; 
+    color: #ffffff;
 }
 .audio-text {
     display: flex;
@@ -707,6 +708,11 @@ body {
         100% {
             transform: translate(0px) scaleX(-1);
         }
+    }
+    .problem-box {
+        max-height: 25vh;
+        padding: 3%;
+        gap: 10px;
     }
 }
 @media (max-height: 640px) {

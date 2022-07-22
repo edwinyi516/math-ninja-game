@@ -111,8 +111,11 @@ let game = {
         }
         characterSelectScreen.style.display = "none"
         startSound.style.display = "none"
+        pauseBackground.style.zIndex = "96"
+        pauseBackground.style.display = "block"
         gameScreen.style.display = "flex"
         problemBox.style.display = "flex"
+        problemBox.style.zIndex = "97"
         nextButton.style.display = "block"
         startSoundOn.removeAttribute("class")
         startSoundMute.removeAttribute("class")
@@ -139,6 +142,7 @@ let game = {
             pauseBackground.style.display = "none"
             problemBox.style.display = "flex"
             isPaused = false
+            answer.focus()
         }
     },
     nextButton () {
@@ -150,8 +154,9 @@ let game = {
         nextButton.style.display = "none"
         pop.play()
         if(player1HPNumber.innerText === "0" || player2HPNumber.innerText === "0") {
-            currentPlayerText.style.display = "none"
             cheer.play()
+            pauseBackground.style.zIndex = "96"
+            currentPlayerText.style.display = "none"
             problemText.style.fontWeight = "800"
             problemText.style.fontSize = "25px"
             if(player2HPNumber.innerText === "0") {
@@ -164,6 +169,8 @@ let game = {
         }
         else {
             answerSpace.style.display = "flex"
+            pauseBackground.style.display = "none"
+            pauseBackground.style.zIndex = "98"
             submitButton.disabled = "true"
             submitButton.style.display = "block"
             game.generateProblems()
@@ -499,7 +506,7 @@ gamebgm.loop = true
 
 //Event Listeners
 startButton.addEventListener("click", () => {
-    if (audioOn.getAttribute("class") == "audio-selected") {
+    if (audioOn.getAttribute("class") === "audio-selected") {
         startbgm.volume = 0.2
         gamebgm.volume = 0.2
         pop.volume = 0.15
@@ -509,7 +516,7 @@ startButton.addEventListener("click", () => {
         correct.volume = .2
         incorrect.volume = .3
     }
-    else if (audioMute.getAttribute("class") == "audio-selected") {
+    else if (audioMute.getAttribute("class") === "audio-selected") {
         allAudio.forEach((e) => {
             e.volume = 0
         })
@@ -625,7 +632,7 @@ resetButton.addEventListener("click", () => {
 })
 document.addEventListener("keydown", function(e) {
     const key = e.key
-    if(gameScreen.style.display === "flex")
+    if(gameScreen.style.display === "flex" && pauseBackground.style.zIndex === "98")
         if(key === "Escape") {
             pop.play()
             game.pauseGame()

@@ -40,7 +40,7 @@ let game = {
             gamebgm.volume = 0.2
             pop.volume = 0.15
             slash.volume = .5
-            whack.volume = .5
+            whack.volume = .3
             cheer.volume = .5
             correct.volume = .2
             incorrect.volume = .3
@@ -73,7 +73,7 @@ let game = {
             menuSoundsMute.setAttribute("class", "sounds-not-selected")
             pop.volume = 0.15
             slash.volume = .5
-            whack.volume = .5
+            whack.volume = .3
             cheer.volume = .5
             correct.volume = .2
             incorrect.volume = .3
@@ -150,6 +150,8 @@ let game = {
         if(player1HPNumber.innerText === "0" || player2HPNumber.innerText === "0") {
             currentPlayerText.style.display = "none"
             cheer.play()
+            problemText.style.fontWeight = "800"
+            problemText.style.fontSize = "25px"
             if(player2HPNumber.innerText === "0") {
                 problemText.innerText = "Player 1 wins!"
             }
@@ -284,6 +286,12 @@ let game = {
                     setTimeout(() => {
                         player2HPNumber.innerText = newplayer2HPNumber
                         player2HPFill.style.width = `${newplayer2HPNumber}%`
+                        if(newplayer2HPNumber <= 50) {
+                            player2HPFill.style.backgroundColor = "yellow"
+                        }
+                        if(newplayer2HPNumber <= 20) {
+                            player2HPFill.style.backgroundColor = "red"
+                        }
                         nextButton.disabled = false
                     }, 1800)
                 }
@@ -319,6 +327,12 @@ let game = {
                     setTimeout(() => {
                         player2HPNumber.innerText = newplayer2HPNumber
                         player2HPFill.style.width = `${newplayer2HPNumber}%`
+                        if(newplayer2HPNumber <= 50) {
+                            player2HPFill.style.backgroundColor = "yellow"
+                        }
+                        if(newplayer2HPNumber <= 20) {
+                            player2HPFill.style.backgroundColor = "red"
+                        }
                         nextButton.disabled = false
                     }, 1800)
                 }
@@ -351,6 +365,12 @@ let game = {
                     setTimeout(() => {
                         player1HPNumber.innerText = newplayer1HPNumber
                         player1HPFill.style.width = `${newplayer1HPNumber}%`
+                        if(newplayer1HPNumber <= 50) {
+                            player1HPFill.style.backgroundColor = "yellow"
+                        }
+                        if(newplayer1HPNumber <= 20) {
+                            player1HPFill.style.backgroundColor = "red"
+                        }
                         nextButton.disabled = false
                     }, 1800)
                 }
@@ -386,6 +406,12 @@ let game = {
                     setTimeout(() => {
                         player1HPNumber.innerText = newplayer1HPNumber
                         player1HPFill.style.width = `${newplayer1HPNumber}%`
+                        if(newplayer1HPNumber <= 50) {
+                            player1HPFill.style.backgroundColor = "yellow"
+                        }
+                        if(newplayer1HPNumber <= 20) {
+                            player1HPFill.style.backgroundColor = "red"
+                        }
                         nextButton.disabled = false
                     }, 1800)
                 }
@@ -444,6 +470,7 @@ const timerNumber = document.querySelector("#timer-number")
 const pauseMenu = document.querySelector(".pause-menu")
 const pauseBackground = document.querySelector("#pause-background")
 const closeButton = document.querySelector("#close-button")
+const resetButton = document.querySelector("#reset-button")
 
 //Audio
 const audioOn = document.querySelector(".audio-selected")
@@ -474,7 +501,7 @@ startButton.addEventListener("click", () => {
         gamebgm.volume = 0.2
         pop.volume = 0.15
         slash.volume = .5
-        whack.volume = .5
+        whack.volume = .3
         cheer.volume = .5
         correct.volume = .2
         incorrect.volume = .3
@@ -589,6 +616,9 @@ closeButton.addEventListener("click", () => {
     pauseBackground.style.display = "none"
     problemBox.style.display = "flex"
     isPaused = false
+})
+resetButton.addEventListener("click", () => {
+    location.reload()
 })
 document.addEventListener("keydown", function(e) {
     const key = e.key

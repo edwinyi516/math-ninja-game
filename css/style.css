@@ -1,13 +1,13 @@
 html {
     max-width: 1400px;
+    min-height: 650px;
     margin: auto;
     background-color: #102020;
 }
 body {
-    min-height: 100%;
     min-width: 600px;
     max-width: 1400px;
-    min-height: 100vh;
+    height: 100vh;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -54,15 +54,14 @@ body {
 #start-button {
     margin: 30px;
     font-size: 25px;
-    font-family: 'Shojumaru';
-    transform: scale(.9, 1);
-    width: 180px;
+    font-family: 'Montserrat';
+    font-weight: 800;
+    width: 160px;
     height: 60px;
     border-width: 1.5px;
     color: #000000;
     border-color: #d8d8d8;
     border-width: 4px;
-    font-weight: bold;
     border-radius: 35px;
     background: linear-gradient(#e5e5e5, #4b4b4b);
 }
@@ -155,15 +154,14 @@ body {
 #fight-button {
     margin-top: 8vh;
     font-size: 25px;
-    font-family: 'Shojumaru';
-    transform: scale(.9, 1);
-    width: 180px;
+    font-family: 'Montserrat';
+    font-weight: 800;
+    width: 160px;
     height: 60px;
     border-width: 1.5px;
     color: #000000;
     border-color: #d8d8d8;
     border-width: 4px;
-    font-weight: bold;
     border-radius: 35px;
     background: linear-gradient(#e5e5e5, #4b4b4b);
 }
@@ -189,7 +187,7 @@ body {
     border-color: black;
     border-style: solid;
     border-radius: 5px;
-    margin: 50px 5%;
+    margin: 5vh 3vw;
     overflow: hidden;
 }
 #player1-hp-fill {
@@ -200,17 +198,19 @@ body {
 #player1-hp-text {
     position: absolute;
     top: 50%;
-    right: 30px;
+    right: 38px;
     transform: translateY(-50%);
-    font: bold 14px sans-serif;
+    font-family: 'Montserrat';
+    font-weight: 600;
     color: #ffffff;
 }
 #player1-hp-number {
     position: absolute;
     top: 50%;
-    right: 5px;
+    right: 8px;
     transform: translateY(-50%);
-    font: bold 14px sans-serif;
+    font-family: 'Montserrat';
+    font-weight: 600;
     color: #ffffff;
 }
 .player2-hp-bar {
@@ -222,7 +222,7 @@ body {
     border-color: black;
     border-style: solid;
     border-radius: 5px;
-    margin: 50px 5%;
+    margin: 5vh 3vw;
     overflow: hidden;
 }
 #player2-hp-fill {
@@ -233,40 +233,78 @@ body {
 #player2-hp-text {
     position: absolute;
     top: 50%;
-    right: 30px;
+    right: 38px;
     transform: translateY(-50%);
-    font: bold 14px 'Quicksand', sans-serif;
+    font-family: 'Montserrat';
+    font-weight: 600;
     color: #ffffff;
 }
 #player2-hp-number {
     position: absolute;
     top: 50%;
-    right: 5px;
+    right: 8px;
     transform: translateY(-50%);
-    font: bold 14px sans-serif;
+    font-family: 'Montserrat';
+    font-weight: 600;
     color: #ffffff;
 }
 .timer {
     position: relative;
-    background-color: white;
-    border-radius: 5px;
+    font-family: "Ceviche One";
     height: 60px;
     padding: 10px;
     text-align: center;
-    margin: 50px 0;
+    margin: 2vh -1vw;
+}
+#timer-text {
+    font-size: 35px;
+    background: -webkit-linear-gradient(#ff3d3d, #1b1b1b);
+    -webkit-background-clip: text;
+    background-clip: none; /*inserted only to remove error*/
+    -webkit-text-fill-color: transparent;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: #ffffff;
+    margin-bottom: -15px;
+}
+#timer-number {
+    font-size: 80px;
+    background: -webkit-linear-gradient(#ff3d3d, #1b1b1b);
+    -webkit-background-clip: text;
+    background-clip: none; /*inserted only to remove error*/
+    -webkit-text-fill-color: transparent;
+    -webkit-text-stroke-width: 2px;
+    -webkit-text-stroke-color: #ffffff;
 }
 .problem-box {
     display: none;
     flex-direction: column;
+    white-space: nowrap;
     justify-content: space-around;
     align-items: center;
-    background-color: white;
-    width: 40vw;
+    font-family: 'Montserrat';
+    background-color: rgba(36, 36, 36, 0.8);
+    border: #000000;
+    border-style: solid;
+    border-radius: 25px;
+    border-width: 5px;
+    width: 30vw;
+    min-width: fit-content;
     height: fit-content;
     padding: 30px;
     gap: 20px;
 }
+#current-player-text {
+    font-family: 'Montserrat';
+    font-weight: 800;
+    font-size: 25px;
+    color: rgb(230, 230, 230);
+}
 #problem-text {
+    font-family: 'Montserrat';
+    font-weight: 500;
+    font-size: 20px;
+    letter-spacing: 1px;
+    color: rgb(230, 230, 230);
     text-align: center;
     width: fit-content;
     height: fit-content;
@@ -278,13 +316,56 @@ body {
     align-items: center;
     gap: 20px;
 }
-#next-button {
-    display: none;
-    height: fit-content;
-    width: fit-content;
+#answer {
+    width: 80px;
+    text-align: center;
+    background-color: #5d5d5d;
+    font-family: 'Montserrat';
+    font-weight: 600;
+    font-size: 17px;
+    color: rgb(230, 230, 230);
+}
+#submit-button, #next-button {
+    font-family: 'Montserrat';
+    font-size: 15px;
+    width: 100px;
+    height: 45px;
+    border-width: 1px;
+    color: #000000;
+    border-color: #d8d8d8;
+    border-width: 3px;
+    font-weight: bold;
+    border-radius: 20px;
+    background: linear-gradient(#e5e5e5, #4b4b4b);
+    margin-top: 15px;
+}
+#submit-button:hover, #next-button:hover {
+    background: linear-gradient(#ff3d3d, #000000);
+    color: #ffffff;
+}
+#next-button:disabled {
+    color: #888888;
+    border-color: #d8d8d8;
+    background: linear-gradient(#e5e5e5, #858585);
 }
 #play-again-button {
     display: none;
+    font-family: 'Montserrat';
+    font-size: 15px;
+    width: 140px;
+    height: 45px;
+    border-width: 1px;
+    color: #000000;
+    border-color: #d8d8d8;
+    border-width: 3px;
+    font-weight: bold;
+    border-radius: 20px;
+    background: linear-gradient(#e5e5e5, #4b4b4b);
+    margin-top: 15px;
+}
+#play-again-button:hover {
+    background: linear-gradient(#ff3d3d, #000000);
+    color: #ffffff;
 }
 .players {
     display: flex;
@@ -311,7 +392,7 @@ body {
     position: absolute;
     height: 100%;
     width: 100%;
-    background: gray;
+    background: #979797;
     opacity: .7;
     z-index: 98;
 }
@@ -322,10 +403,13 @@ body {
     flex-wrap: wrap;
     justify-content: space-around;
     align-items: center;
-    margin-top: 20%;
-    width: 40vw;
-    height: 30vh;
-    background: white;
+    padding: 20px 0;
+    margin-top: 25vh;
+    width: fit-content;
+    height: fit-content;
+    min-width: 50%;
+    min-height: 30vh;
+    background: rgb(62, 62, 62, 0.8);
     border: black;
     border-style: solid;
     border-width: 5px;
@@ -333,10 +417,75 @@ body {
     text-align: center;
     z-index: 99;
 }
-#pause-text, #mute-button, #close-button {
+#pause-text {
+    font-family: 'Ceviche One';
+    font-size: 65px;
+    background: -webkit-linear-gradient(#ff3d3d, #1b1b1b);
+    -webkit-background-clip: text;
+    background-clip: none; /*inserted only to remove error*/
+    -webkit-text-fill-color: transparent;
+    -webkit-text-stroke-width: 1.5px;
+    -webkit-text-stroke-color: #ffffff;
     margin-top: auto;
     margin-bottom: auto;
     width: fit-content;
+}
+.audio-text {
+    margin-top: 30px;
+}
+#music-text, #sounds-text {
+    font-family: 'Ceviche One';
+    font-size: 45px;
+    background: -webkit-linear-gradient(#ff3d3d, #1b1b1b);
+    -webkit-background-clip: text;
+    background-clip: none; /*inserted only to remove error*/
+    -webkit-text-fill-color: transparent;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: #ffffff;
+    margin-top: auto;
+    margin-bottom: auto;
+    width: fit-content;
+}
+#mute-button, #close-button, #reset-button {
+    margin-top: auto;
+    margin-bottom: auto;
+    width: fit-content;
+}
+#close-button {
+    font-family: 'Montserrat';
+    font-size: 15px;
+    width: 170px;
+    height: 45px;
+    border-width: 1px;
+    color: #000000;
+    border-color: #d8d8d8;
+    border-width: 3px;
+    font-weight: bold;
+    border-radius: 20px;
+    background: linear-gradient(#e5e5e5, #4b4b4b);
+    margin-top: 50px;
+}
+#close-button:hover, #reset-button:hover {
+    background: linear-gradient(#ff3d3d, #000000);
+    color: #ffffff; 
+}
+#reset-button {
+    font-family: 'Montserrat';
+    font-size: 15px;
+    width: 170px;
+    height: 45px;
+    border-width: 1px;
+    color: #ffffff;
+    border-color: #d8d8d8;
+    border-width: 3px;
+    font-weight: bold;
+    border-radius: 20px;
+    background: linear-gradient(#ff3d3d, #000000);
+    margin-top: 20px;
+}
+#reset-button:hover {
+    background: linear-gradient(#ff3d3d, #ff7f7f);
+    color: #ffffff; 
 }
 .audio-text {
     display: flex;
@@ -518,19 +667,19 @@ body {
             transform: translate(0px);
         }
         35% {
-            transform: translate(90vmin);
+            transform: translate(55vmin);
         }
         65% {
-            transform: translate(90vmin);
+            transform: translate(55vmin);
         }
         75% {
-            transform: translate(60vmin, -80px);
+            transform: translate(40vmin, -80px);
         }
         80% {
-            transform: translate(45vmin, -100px);
+            transform: translate(30vmin, -100px);
         }
         85% {
-            transform: translate(30vmin, -80px);
+            transform: translate(20vmin, -80px);
         }
         100% {
             transform: translate(0px);
@@ -541,16 +690,69 @@ body {
             transform: translate(0px) scaleX(-1);
         }
         35% {
-            transform: translate(-95vmin) scaleX(-1);
+            transform: translate(-60vmin) scaleX(-1);
         }
         65% {
-            transform: translate(-95vmin) scaleX(-1);
+            transform: translate(-60vmin) scaleX(-1);
         }
         75% {
-            transform: translate(-60vmin, -80px) scaleX(-1);
+            transform: translate(-45vmin, -80px) scaleX(-1);
         }
         80% {
-            transform: translate(-45vmin, -100px) scaleX(-1);
+            transform: translate(-32vmin, -100px) scaleX(-1);
+        }
+        85% {
+            transform: translate(-20vmin, -80px) scaleX(-1);
+        }
+        100% {
+            transform: translate(0px) scaleX(-1);
+        }
+    }
+}
+@media (max-height: 640px) {
+    #player1-character, #player2-character {
+        height: 40vh;
+        margin-bottom: 2vh;
+        align-self: flex-end;
+    }
+    @keyframes p1movement {
+        0% {
+            transform: translate(0px);
+        }
+        35% {
+            transform: translate(75vmin);
+        }
+        65% {
+            transform: translate(75vmin);
+        }
+        75% {
+            transform: translate(50vmin, -80px);
+        }
+        80% {
+            transform: translate(35vmin, -100px);
+        }
+        85% {
+            transform: translate(25vmin, -80px);
+        }
+        100% {
+            transform: translate(0px);
+        }
+    }
+    @keyframes p2movement {
+        0% {
+            transform: translate(0px) scaleX(-1);
+        }
+        35% {
+            transform: translate(-82vmin) scaleX(-1);
+        }
+        65% {
+            transform: translate(-82vmin) scaleX(-1);
+        }
+        75% {
+            transform: translate(-55vmin, -80px) scaleX(-1);
+        }
+        80% {
+            transform: translate(-40vmin, -100px) scaleX(-1);
         }
         85% {
             transform: translate(-30vmin, -80px) scaleX(-1);

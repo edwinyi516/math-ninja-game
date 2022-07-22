@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Ceviche+One&family=Shojumaru&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Ceviche+One&family=Montserrat:wght@400;500;600;800&family=Shojumaru&display=swap" rel="stylesheet">
 </head>
 <body class="start-bg">
     <div class="start-sound">
@@ -38,10 +38,10 @@
     <div class="game-screen">
         <div id="pause-background"></div>
         <div class="pause-menu">
-            <div id="pause-text">PAUSED</div>
+            <div id="pause-text">Game Paused</div>
             <div class="audio-text">
                 <div id="music-text">Music</div>
-                <div id="sounds-text">Sounds</div>
+                <div id="sounds-text">Effects</div>
             </div>
             <div class="sound-buttons">
                 <div class="menu-music">
@@ -54,6 +54,7 @@
                 </div>
             </div>
             <button id="close-button">Close / Resume</button>
+            <button id="reset-button">Reset Game</button>
         </div>
         <div class="player1-hp-bar">
             <div id="player1-hp-fill"></div>
@@ -71,7 +72,7 @@
         </div>
         <div class="problem-box">
             <div id="current-player-text"></div>
-            <div id="problem-text">Welcome to Math Ninja!<br>Take turns answering math problems.<br>Get the answer correct to attack your enemy.<br>Answer incorrectly and your turn is over.</div>
+            <div id="problem-text">Welcome to Math Ninja!<br>Take turns answering math problems.<br>Get the answer correct to attack your enemy.<br>Answer incorrectly and your turn is over.<br><br>(press ESC to pause game / see menu)</div>
             <div class="answer-space">
                 <input type="text" autocomplete="off" id="answer">
                 <button id="submit-button">Submit</button>

@@ -87,7 +87,7 @@ body {
     width: 100%;
     font-size: 60px;
     text-align: center;
-    margin-top: 100px;
+    margin-top: 8vh;
     background: -webkit-linear-gradient(#ff3d3d, #1b1b1b);
     -webkit-background-clip: text;
     background-clip: none; /*inserted only to remove error*/
@@ -120,7 +120,7 @@ body {
     width: 100%;
     font-size: 60px;
     text-align: center;
-    margin-top: 50px;
+    margin-top: 3vh;
     letter-spacing: 3px;
     background: -webkit-linear-gradient(#ff3d3d, #1b1b1b);
     -webkit-background-clip: text;
@@ -128,7 +128,7 @@ body {
     -webkit-text-fill-color: transparent;
     -webkit-text-stroke-width: 2px;
     -webkit-text-stroke-color: #ffffff;
-    margin-bottom: 30px;
+    margin-bottom: 3vh;
 }
 .operator-buttons {
     display: flex;
@@ -139,11 +139,11 @@ body {
 }
 #choose-addition, #choose-subtraction, #choose-multiplication, #choose-division, #choose-all {
     min-width: 0;
-    max-height: 200px;
+    max-height: 20vh;
 }
 #chosen-operator {
     min-width: 0;
-    max-height: 200px;
+    max-height: 20vh;
     filter: drop-shadow(2px 2px 5px #ff3d3d)
     drop-shadow(-2px -2px 5px #ff3d3d);
     transform: none;
@@ -153,7 +153,7 @@ body {
     drop-shadow(-2px -2px 5px #ffffff);
 }
 #fight-button {
-    margin-top: 80px;
+    margin-top: 8vh;
     font-size: 25px;
     font-family: 'Shojumaru';
     transform: scale(.9, 1);
@@ -501,6 +501,59 @@ body {
         }
         85% {
             transform: translate(-25vmin, -80px) scaleX(-1);
+        }
+        100% {
+            transform: translate(0px) scaleX(-1);
+        }
+    }
+}
+@media (max-height: 800px) {
+    #player1-character, #player2-character {
+        height: 40vh;
+        margin-bottom: 2vh;
+        align-self: flex-end;
+    }
+    @keyframes p1movement {
+        0% {
+            transform: translate(0px);
+        }
+        35% {
+            transform: translate(90vmin);
+        }
+        65% {
+            transform: translate(90vmin);
+        }
+        75% {
+            transform: translate(60vmin, -80px);
+        }
+        80% {
+            transform: translate(45vmin, -100px);
+        }
+        85% {
+            transform: translate(30vmin, -80px);
+        }
+        100% {
+            transform: translate(0px);
+        }
+    }
+    @keyframes p2movement {
+        0% {
+            transform: translate(0px) scaleX(-1);
+        }
+        35% {
+            transform: translate(-95vmin) scaleX(-1);
+        }
+        65% {
+            transform: translate(-95vmin) scaleX(-1);
+        }
+        75% {
+            transform: translate(-60vmin, -80px) scaleX(-1);
+        }
+        80% {
+            transform: translate(-45vmin, -100px) scaleX(-1);
+        }
+        85% {
+            transform: translate(-30vmin, -80px) scaleX(-1);
         }
         100% {
             transform: translate(0px) scaleX(-1);

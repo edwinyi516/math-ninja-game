@@ -250,6 +250,12 @@ let game = {
                     submitButton.style.display = "none"
                     problemText.innerText = "You ran out of time!"
                     nextButton.style.display = "block"
+                    if(currentPlayer === "Player 1") {
+                        currentPlayer = "Player 2"
+                    }
+                    else if(currentPlayer === "Player 2") {
+                        currentPlayer = "Player 1"
+                    }
                 }
             },1000)
     },

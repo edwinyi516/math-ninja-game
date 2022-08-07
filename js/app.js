@@ -434,7 +434,7 @@ let game = {
                 }
             }
         else if(answerNumber !== correctAnswer) {
-            problemText.innerText = "Incorrect! You lose your turn."
+            problemText.innerHTML = `Incorrect! The correct answer is ${correctAnswer}. You lose your turn.`
             incorrect.play()
             nextButton.disabled = false
             nextButton.style.display = "block"
